@@ -17,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemTextJson", "JsonReque
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStructure", "DataStructure\DataStructure.csproj", "{4AA7D14B-91E4-4A59-B5B4-A6A3147006EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "Algorithm\Algorithm.csproj", "{C3D30E21-7F6F-435F-A2D2-66380C763283}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm", "Algorithm\Algorithm.csproj", "{C3D30E21-7F6F-435F-A2D2-66380C763283}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net6Feature", "Net6Feature\Net6Feature.csproj", "{44316866-F128-484B-99A9-49823E71FF09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueenAttack", "QueenAttack\QueenAttack.csproj", "{EC241242-EA26-445C-9E5D-AD6A77848C7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{C3D30E21-7F6F-435F-A2D2-66380C763283}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3D30E21-7F6F-435F-A2D2-66380C763283}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3D30E21-7F6F-435F-A2D2-66380C763283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44316866-F128-484B-99A9-49823E71FF09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44316866-F128-484B-99A9-49823E71FF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44316866-F128-484B-99A9-49823E71FF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44316866-F128-484B-99A9-49823E71FF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
