@@ -1,0 +1,4 @@
+{
+  "QualificationParameter": "{\"DateSpanStart\":\"2020-09-01T00:00:00.0000000\",\"DateSpanEnd\":\"2021-02-28T00:00:00.0000000\",\"PromoStartDate\":\"2021-09-01T00:00:00.0000000\",\"Products\":{\"ProductItem\":[{\"Sku\":\"9276\",\"Quantity\":\"1\"},{\"Sku\":\"8318\",\"Quantity\":\"1\"}]}}",
+  "QualificationType": "OrderHistoryHasOrderedSkus"
+}
