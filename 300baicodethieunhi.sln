@@ -21,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm", "Algorithm\Algo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net6Feature", "Net6Feature\Net6Feature.csproj", "{44316866-F128-484B-99A9-49823E71FF09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueenAttack", "QueenAttack\QueenAttack.csproj", "{EC241242-EA26-445C-9E5D-AD6A77848C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueenAttack", "QueenAttack\QueenAttack.csproj", "{EC241242-EA26-445C-9E5D-AD6A77848C7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotnetFeature", "DotnetFeature", "{8A622569-5436-46E2-BE6E-C26293A11CA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManualResetEvent", "ManualResetEvent\ManualResetEvent.csproj", "{5733327F-6F5C-4A86-9DCE-B96A0947C59A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,9 +73,16 @@ Global
 		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5733327F-6F5C-4A86-9DCE-B96A0947C59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5733327F-6F5C-4A86-9DCE-B96A0947C59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5733327F-6F5C-4A86-9DCE-B96A0947C59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5733327F-6F5C-4A86-9DCE-B96A0947C59A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5733327F-6F5C-4A86-9DCE-B96A0947C59A} = {8A622569-5436-46E2-BE6E-C26293A11CA7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66164A77-273F-4F78-9AB5-8EEDD2E99C23}

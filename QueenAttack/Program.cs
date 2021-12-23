@@ -57,6 +57,8 @@ class ChessPoint
 
     public int Row { get; set; }
     public int Col { get; set; }
+
+
 }
 
 class Solution
