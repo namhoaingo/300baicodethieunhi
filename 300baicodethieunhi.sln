@@ -21,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithm", "Algorithm\Algo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net6Feature", "Net6Feature\Net6Feature.csproj", "{44316866-F128-484B-99A9-49823E71FF09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueenAttack", "QueenAttack\QueenAttack.csproj", "{EC241242-EA26-445C-9E5D-AD6A77848C7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueenAttack", "QueenAttack\QueenAttack.csproj", "{EC241242-EA26-445C-9E5D-AD6A77848C7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stopwatch", "Stopwatch\Stopwatch.csproj", "{53C8E88F-0F55-49B6-BC85-76DDF01E9176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticField", "StaticField\StaticField.csproj", "{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC241242-EA26-445C-9E5D-AD6A77848C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C8E88F-0F55-49B6-BC85-76DDF01E9176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C8E88F-0F55-49B6-BC85-76DDF01E9176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C8E88F-0F55-49B6-BC85-76DDF01E9176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C8E88F-0F55-49B6-BC85-76DDF01E9176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
