@@ -25,7 +25,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueenAttack", "QueenAttack\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stopwatch", "Stopwatch\Stopwatch.csproj", "{53C8E88F-0F55-49B6-BC85-76DDF01E9176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticField", "StaticField\StaticField.csproj", "{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StaticField", "StaticField\StaticField.csproj", "{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaConsumer", "KafkaConsumer\KafkaConsumer.csproj", "{DBCA375F-7EF8-4D34-80D6-F449E1690C0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaProducer", "KafkaProducer\KafkaProducer.csproj", "{6EE57E4B-E12E-4751-A602-06CEDDCA50C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaConsumerB", "KafkaConsumerB\KafkaConsumerB.csproj", "{EB85F71E-23AC-44B1-934F-E581C58A263B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextJson", "TextJson\TextJson.csproj", "{66B57C69-C14F-422C-A1FE-F7EDF9B46CD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationCookie", "AuthenticationCookie\AuthenticationCookie.csproj", "{DE8C84A7-C22E-4C96-BDE7-4682A7F9AB8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +91,26 @@ Global
 		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D8BC14D-586F-4D15-8AD3-177B0083FF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBCA375F-7EF8-4D34-80D6-F449E1690C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBCA375F-7EF8-4D34-80D6-F449E1690C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBCA375F-7EF8-4D34-80D6-F449E1690C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBCA375F-7EF8-4D34-80D6-F449E1690C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE57E4B-E12E-4751-A602-06CEDDCA50C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE57E4B-E12E-4751-A602-06CEDDCA50C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE57E4B-E12E-4751-A602-06CEDDCA50C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE57E4B-E12E-4751-A602-06CEDDCA50C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB85F71E-23AC-44B1-934F-E581C58A263B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB85F71E-23AC-44B1-934F-E581C58A263B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB85F71E-23AC-44B1-934F-E581C58A263B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB85F71E-23AC-44B1-934F-E581C58A263B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B57C69-C14F-422C-A1FE-F7EDF9B46CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B57C69-C14F-422C-A1FE-F7EDF9B46CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B57C69-C14F-422C-A1FE-F7EDF9B46CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B57C69-C14F-422C-A1FE-F7EDF9B46CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8C84A7-C22E-4C96-BDE7-4682A7F9AB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8C84A7-C22E-4C96-BDE7-4682A7F9AB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8C84A7-C22E-4C96-BDE7-4682A7F9AB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8C84A7-C22E-4C96-BDE7-4682A7F9AB8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

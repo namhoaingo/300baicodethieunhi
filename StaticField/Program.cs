@@ -18,6 +18,8 @@ namespace StaticField
             {
                 var nonStaticClass = new NormalClassWithStatic();
                 Console.WriteLine("normal class with static Name: " + NormalClassWithStatic.Name);
+                Console.WriteLine("address normal class with static Name: " + NormalClassWithStatic.Name.GetHashCode());
+
             }
 
 
@@ -41,12 +43,20 @@ namespace StaticField
         //public static string Name { get; } = Guid.NewGuid().ToString();
 
         // => return different instance
-        public static string Name => Guid.NewGuid().ToString();
+        //public static string Name => Guid.NewGuid().ToString();
 
+        // also return a different intance
+        public static string Name
+        {
+            get {
+                Console.WriteLine("Get call with return");    
+                return Guid.NewGuid().ToString();             
+            }
+        }
     }
 
     static class StaticClass
     {
-        public static string Name { get; } = Guid.NewGuid().ToString();
+        public static string Name => Guid.NewGuid().ToString();
     }
 }
