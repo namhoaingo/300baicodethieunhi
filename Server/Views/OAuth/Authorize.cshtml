@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model AuthorizeViewModel;
+@*Post to the Authorize action*@
+<form action="/OAuth/AuthorizePost" method="post">
+    <input type="text" name="username" value="" />
+    <input type="text" name="password" value="" />
+
+
+    @Html.HiddenFor(m => m.response_type)
+    @Html.HiddenFor(m => m.client_id)
+    @Html.HiddenFor(m => m.redirect_uri)
+    @Html.HiddenFor(m => m.scope)
+    @Html.HiddenFor(m => m.state)
+
+    <input type="submit" value="Submit" />
+
+
+</form>
