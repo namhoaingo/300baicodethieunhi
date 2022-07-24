@@ -39,3 +39,9 @@ function isAnagram(s: string, t: string): boolean {
 
 //console.log(isAnagram("rat", "cat"));
 //console.log(isAnagram("anagram", "nagaram"));
+
+
+
+//*****************************Result******************************************* */
+// Runtime: 107 ms, faster than 79.52% of TypeScript online submissions for Valid Anagram.
+// Memory Usage: 44.6 MB, less than 83.98% of TypeScript online submissions for Valid Anagram.
