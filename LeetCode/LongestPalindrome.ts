@@ -39,4 +39,4 @@ function longestPalindrome(s: string): string {
     return res;
 };
 
-console.log(longestPalindrome("babad"));
+//console.log(longestPalindrome("babad"));
