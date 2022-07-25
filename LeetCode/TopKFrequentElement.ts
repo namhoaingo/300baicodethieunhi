@@ -5,6 +5,13 @@ Lession learn
 3. One way to do this is using Max Heap
 */
 
+/* Time complexity
+
+*/
+
+/* Space Complexity
+
+*/
 //https://leetcode.com/problems/top-k-frequent-elements/
 function topKFrequent(nums: number[], k: number): number[] {
     var numsLeng = nums.length;
