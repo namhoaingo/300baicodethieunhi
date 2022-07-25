@@ -1,3 +1,9 @@
+/*
+Lession learn
+1. Calculate the count using dictionary/ hash map is best
+2. Sort the array using index is even better
+
+*/
 
 //https://leetcode.com/problems/top-k-frequent-elements/
 function topKFrequent(nums: number[], k: number): number[] {
