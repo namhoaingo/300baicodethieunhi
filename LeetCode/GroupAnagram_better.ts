@@ -1,6 +1,6 @@
 https://www.youtube.com/watch?v=vzdNOK2oB2E&ab_channel=NeetCode
 
-var groupAnagrams = function (strs) {
+var groupAnagrams_better = function (strs) {
     let res = {}; //mapping charCount to list of anagrams i.e "1e,1a,1t": ["eat", "tea", "ate"]
     for(let s of strs) {
         //To count each char:
