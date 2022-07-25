@@ -6,6 +6,7 @@ Lession learn
 */
 
 /* Time complexity
+Using three loop, will be O(n), O(n), O(k)
 
 */
 
