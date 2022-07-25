@@ -40,11 +40,17 @@ function topKFrequent(nums: number[], k: number): number[] {
     }
 
     var result = new Array();
-    for(var lastIndex = arrayCounter.length - 1; lastIndex >= 0; lastIndex--){
+    var remainingItemPicking = k;
+    for(var lastIndex = arrayCounter.length - 1; lastIndex >= 0 || remainingItemPicking != 0 ; lastIndex--){
         var lastElementArray = arrayCounter[lastIndex];
-        if(result.length != k){
-            var pickIndex = k-result.length;
-            result.push(arrayCounter.);
+        if(remainingItemPicking >= lastElementArray.length){
+            result.push(lastElementArray)
+            remainingItemPicking = remainingItemPicking - lastElementArray.length;
+        }
+        else{
+            // only pick the remaining item
+            result.push(lastElementArray.slice(0, remainingItemPicking));
+            remainingItemPicking = 0;
         }
     }
 }
