@@ -2,7 +2,7 @@
 Lession learn
 1. Calculate the count using dictionary/ hash map is best
 2. Sort the array using index is even better
-
+3. One way to do this is using Max Heap
 */
 
 //https://leetcode.com/problems/top-k-frequent-elements/
