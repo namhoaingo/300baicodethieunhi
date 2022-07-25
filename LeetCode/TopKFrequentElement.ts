@@ -27,6 +27,9 @@ function topKFrequent(nums: number[], k: number): number[] {
             //Start to opimize
 
             // adjust the array counter, move it up once
+            // Problem
+            // 1. Moving things around cost too much time
+            // 2. Normal suggested way is doing three loop with O(n), O(n), O(k)
             if (arrayCounter[currentIndex + 1]) {
                 arrayCounter[currentIndex + 1].push(currentNum);
             } else {
