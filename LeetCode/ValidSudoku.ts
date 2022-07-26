@@ -1,6 +1,22 @@
 /**
  * Understanding the problem
+ * Cái quan trọng nhất trong giải pháp này là phải chia được ra theo dictionary
+ * Mỗi số sẽ được cho vào trong 3 cái dictionary 
+ *  a. Ngang
+ *  b. Dọc
+ *  c. Vùng
  * 
+ * vì vậy, sẽ có 9 dict cho ngang, 9 dict cho dọc, 9 dict cho vùng=> 27
+ * cái khó nhất là làm sao có thể tìm được vị trí chính xác của index dict cho
+ * mỗi số
+ * 
+ * Time complexity
+ * Loop qua mỗi số 1 lần O(n)
+ * Tìm và cho vào 3 dict O(3)
+ * Kết quả O(n)
+ * 
+ * Space Complexity 
+ * Dict để chứa tất cả các sô O(3*n)
  */
 
 
@@ -93,3 +109,9 @@ function getVungIndexChoJ(j: number): number {
 // ,[".","6",".",".",".",".","2","8","."]
 // ,[".",".",".","4","1","9",".",".","5"]
 // ,[".",".",".",".","8",".",".","7","9"]]));
+
+
+/**Result
+ *  Runtime: 111 ms, faster than 72.56% of TypeScript online submissions for Valid Sudoku.
+    Memory Usage: 46.5 MB, less than 55.12% of TypeScript online submissions for Valid Sudoku.
+ */
