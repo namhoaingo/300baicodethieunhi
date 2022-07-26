@@ -40,6 +40,7 @@ function productExceptSelf(nums: number[]): number[] {
         }
         else if(prefixIndex == 1){
             resultArray[1]=  prefix_current * nums[prefixIndex-1];
+            prefix_current = prefix_current * nums[prefixIndex-1];
         }
         else{
             resultArray[prefixIndex] =  prefix_current * nums[prefixIndex-1];
@@ -62,6 +63,6 @@ function productExceptSelf(nums: number[]): number[] {
     return resultArray;
 };
 
-console.time();
-console.log(productExceptSelf([-1,1,0,-3,3]));
-console.timeEnd();
+// console.time();
+// console.log(productExceptSelf([-1,1,0,-3,3]));
+// console.timeEnd();
