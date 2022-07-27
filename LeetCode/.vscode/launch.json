@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Array_Hashing\\ValidSudoku.ts",
+            "program": "${workspaceFolder}\\Array_Hashing\\LongestConseccutiveSequence.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
