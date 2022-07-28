@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Array_Hashing\\LongestConseccutiveSequence.ts",
+            "program": "${workspaceFolder}\\Algori\\Sorting\\HeapSort_loop.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

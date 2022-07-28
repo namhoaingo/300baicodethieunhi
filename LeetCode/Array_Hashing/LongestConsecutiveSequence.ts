@@ -36,12 +36,14 @@
  * Loop qua array lần 1 - O(n) - Tạo dict
  * Loop qua array lần 2 - O(n)
  *      Trong khi loop thì kiểm tra xem có trong dict ko O(1)
+ *      Phải kiểm tra trong n lần
+ *      ==> O(n)
  * 
- * Kết quả O(n)
+ * Kết quả O(n^2)
  * 
  * Space Complexity 
  * Sữ dựng Dict có size bằng n O(n)
- */     
+ */
 
 
 function longestConsecutive(nums: number[]): number {
@@ -59,7 +61,7 @@ function longestConsecutive(nums: number[]): number {
             starting_num = starting_num + 1;
         }
 
-        var current_count = starting_num - nums[j] + 1;
+        var current_count = starting_num - nums[j];
         if(current_count >max_consecutive_length){
             max_consecutive_length = current_count;
         }
@@ -68,4 +70,4 @@ function longestConsecutive(nums: number[]): number {
     return max_consecutive_length;
 };
 
-console.log(longestConsecutive([100,4,200,1,3,2]));
+//console.log(longestConsecutive([100,4,200,1,3,2]));
