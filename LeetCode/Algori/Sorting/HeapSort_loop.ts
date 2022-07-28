@@ -9,12 +9,11 @@ function heapSortLoop(inputs: number[]){
     for(var i = length - 1; i >=0; i--){
         create_maintain_heap(inputs, i, length-1);
     }
-
+    var current_index = length-1;
     for (var index = 0; index < length; index++){
-        var current_length = length;
-        swap(inputs, 0, current_length-1);
-        create_maintain_heap(inputs, 0, current_length-2);
-        current_length = current_length-2;
+        swap(inputs, 0, current_index);
+        create_maintain_heap(inputs, 0, current_index - 1);
+        current_index = current_index - 1;
     }
 }
 
