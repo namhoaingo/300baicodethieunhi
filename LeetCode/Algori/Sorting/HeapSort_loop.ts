@@ -7,14 +7,14 @@
 function heapSortLoop(inputs: number[]){
    var length = inputs.length;
     for(var i = length - 1; i >=0; i--){
-        create_maintain_heap(inputs, i, length);
+        create_maintain_heap(inputs, i, length-1);
     }
 
     for (var index = 0; index < length; index++){
         var current_length = length;
         swap(inputs, 0, current_length-1);
-        create_maintain_heap(inputs, 0, current_length-1);
-        current_length = current_length-1;
+        create_maintain_heap(inputs, 0, current_length-2);
+        current_length = current_length-2;
     }
 }
 
@@ -44,16 +44,14 @@ function create_maintain_heap(inputs: number[], current_index: number, upper_ind
                 current_index = right_index;
             }
         }
-
         // Kiem tra neu left o ngoai range 
         // Truong hop nay xay ra khi current khong co node ben trai
-        if(left_index > upper_index) break;
+        else if(left_index > upper_index) break;
         else if (inputs[current_index] < inputs[left_index]) {
             swap(inputs, current_index, left_index);
             current_index = left_index;
         }
-
-        if(right_index > upper_index) break;
+        else if(right_index > upper_index) break;
         else if (inputs[current_index] < inputs[right_index]){
             swap(inputs, current_index, right_index);
             current_index = right_index;
