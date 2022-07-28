@@ -46,7 +46,7 @@
  */
 
 
-function longestConsecutive(nums: number[]): number {
+function longestConsecutive_dict(nums: number[]): number {
     var dict = {};
     var max_consecutive_length = 0;
     for (var i = 0; i < nums.length; i++){
@@ -57,6 +57,7 @@ function longestConsecutive(nums: number[]): number {
 
     for (var j = 0; j < nums.length; j++){
         var starting_num = nums[j];
+        if(!dict[starting_num-1]){
         while (dict[starting_num]){
             starting_num = starting_num + 1;
         }
@@ -65,6 +66,7 @@ function longestConsecutive(nums: number[]): number {
         if(current_count >max_consecutive_length){
             max_consecutive_length = current_count;
         }
+    }
     }
 
     return max_consecutive_length;
