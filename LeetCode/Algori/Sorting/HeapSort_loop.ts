@@ -4,6 +4,7 @@
  * 
  */
 
+
 function heapSortLoop(inputs: number[]){
    var length = inputs.length;
     for(var i = length - 1; i >=0; i--){
@@ -64,11 +65,10 @@ function swap_for_heapsort_loop(inputs: number[], a_index: number, b_index: numb
     inputs[b_index] = temp;
 }
 
-
-
+export {heapSortLoop as default};
 
 // Test create_heap function
-var inputs = [2,1,8,9,10,0];
-heapSortLoop(inputs);
-console.log(inputs);
+// var inputs = [100,4,200,1,3,2];
+// heapSortLoop(inputs);
+// console.log(inputs);
 //console.log(heapSortLoop(inputs));
