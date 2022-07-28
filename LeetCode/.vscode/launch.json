@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Algori\\Sorting\\HeapSort_loop.ts",
+            "program": "${workspaceFolder}\\Algori\\Sorting\\HeapSort_recursive.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

@@ -11,7 +11,7 @@ function heapSortLoop(inputs: number[]){
     }
     var current_index = length-1;
     for (var index = 0; index < length; index++){
-        swap(inputs, 0, current_index);
+        swap_for_heapsort_loop(inputs, 0, current_index);
         create_maintain_heap(inputs, 0, current_index - 1);
         current_index = current_index - 1;
     }
@@ -34,12 +34,12 @@ function create_maintain_heap(inputs: number[], current_index: number, upper_ind
             // If we dont get the Max, we will have to pick left or right to SWAP
             else if(inputs[left_index] > inputs[right_index]) {
                 // SWAP with left
-                swap(inputs, current_index, left_index);
+                swap_for_heapsort_loop(inputs, current_index, left_index);
                 // set the current to the left ----> IMPORTANT
                 // SO next time we can start checking the left tree
                 current_index = left_index;
             } else{
-                swap(inputs, current_index, right_index);
+                swap_for_heapsort_loop(inputs, current_index, right_index);
                 current_index = right_index;
             }
         }
@@ -47,18 +47,18 @@ function create_maintain_heap(inputs: number[], current_index: number, upper_ind
         // Truong hop nay xay ra khi current khong co node ben trai
         else if(left_index > upper_index) break;
         else if (inputs[current_index] < inputs[left_index]) {
-            swap(inputs, current_index, left_index);
+            swap_for_heapsort_loop(inputs, current_index, left_index);
             current_index = left_index;
         }
         else if(right_index > upper_index) break;
         else if (inputs[current_index] < inputs[right_index]){
-            swap(inputs, current_index, right_index);
+            swap_for_heapsort_loop(inputs, current_index, right_index);
             current_index = right_index;
         }
     }
 }
 
-function swap(inputs: number[], a_index: number, b_index: number){
+function swap_for_heapsort_loop(inputs: number[], a_index: number, b_index: number){
     var temp = inputs[a_index];
     inputs[a_index] = inputs[b_index];
     inputs[b_index] = temp;
