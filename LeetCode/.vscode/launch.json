@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Array_Hashing\\LongestConsecutiveSequence_HeapSort.ts",
+            "program": "${workspaceFolder}\\TwoPointer\\Valid_Palindrome.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
