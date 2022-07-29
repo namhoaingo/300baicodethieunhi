@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\TwoPointer\\Valid_Palindrome.ts",
+            "program": "${workspaceFolder}\\Algori\\Sorting\\MergeSort_recursive.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
