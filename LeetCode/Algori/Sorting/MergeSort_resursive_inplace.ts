@@ -18,7 +18,7 @@ function merge_inplace( entire_numbers: number[],
                                 // chỉ có điều. Start_index_a tức số ở start_index_b mới
                                 // chưa chắc đã là số nhỏ nhất trong dãy b
                                 // Cần phải được sắp xếp lại cho tới khi nhỏ nhất
-                                whi    
+                                    
                             }
                         }
 

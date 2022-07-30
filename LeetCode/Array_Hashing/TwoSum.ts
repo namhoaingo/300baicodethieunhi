@@ -1,6 +1,6 @@
 //https://leetcode.com/problems/two-sum/
 
-function twoSum(nums: number[], target: number): number[] {
+function twoSum_array(nums: number[], target: number): number[] {
     var dict = {};
     var dict_result = {};
     for (var i = 0; i < nums.length ; i++){

@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Algori\\Sorting\\MergeSort_recursive.ts",
+            "program": "${workspaceFolder}\\TwoPointer\\Two_sum_ii_final.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
