@@ -6,11 +6,29 @@
  *  tim hieu min và hieu max
  * 
  */
-function maxArea(height: number[]): number {
+function maxArea_wrong_approach(height: number[]): number {
+    var originalHeight = Object.assign({}, height);
+    // create a dictionary to container the number and index
+    // key is the number
+    // value is an array which contain the index
+    var dict = {};
+    
+    for(var i = 0; i < height.length; i++){
+        if(!dict[height[i]]){
+            dict[height[i]] = new Array();
+        }
+        dict[height[i]].push(i);
+    }
 
-    console.log(heap_sort_containerwithwater(height));
+    // have a sorted array
+    heap_sort_containerwithwater(height)
 
+    // principle is the min of sorted array
+    // max of the array
+
+    
     return null;
+    
 };
 
 // Region Sorting 

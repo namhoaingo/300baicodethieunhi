@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\TwoPointer\\Container_with_mostwater.ts",
+            "program": "${workspaceFolder}\\TwoPointer\\Container_with_mostwater_twoPointer.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
