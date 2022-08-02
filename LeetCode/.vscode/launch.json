@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\TwoPointer\\Trapping_rain_water.ts",
+            "program": "${workspaceFolder}\\SlidingWindow\\BestTimetoBuySell.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
