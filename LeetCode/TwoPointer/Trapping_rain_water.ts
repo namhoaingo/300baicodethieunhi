@@ -8,56 +8,39 @@
  * When we move, keep adding the number together
  */
 function trap(height: number[]): number {
-    var running_total_trap_water = 0; 
-    // Check start and finish
-    var start_index = 0;
-    var end_index = height.length - 1;
-    var absolute_max = height.length - 1;
-    var left_pointer = 0;
-    var right_pointer = 0;
-    while(height[start_index + 1] >= height[start_index] && start_index <=  absolute_max){
-        start_index = start_index + 1;
-    }
 
-    while(height[end_index] <= height[end_index-1] && end_index >= 0){
-        end_index = end_index - 1;
-    }
-    if(end_index == left_pointer){
-        return 0;
-    }
-    // Here we have good start index and and end index
-    left_pointer = start_index;
-    right_pointer = start_index + 1;
-    
-    while(right_pointer < end_index){
-        var found_bigger_or_equal = true;
-        while(height[left_pointer] > height[right_pointer]){
-            if(right_pointer < end_index){
-                right_pointer = right_pointer + 1;
+    var left = 0;
+    var right = height.length - 1;
+
+    var max_left = 0;
+    var max_right = 0;
+
+    var running_water = 0;
+
+    while (left <= right) {
+        if(max_left <= max_right){
+            // calculate 
+            running_water = running_water + ((Math.min(max_left, max_right) - height[left]) <= 0 ? 0: (Math.min(max_left, max_right) - height[left]));
+            // check if we need to update max_left
+            if(max_left < height[left]){
+                max_left = height[left];
             }
-            else{
-                found_bigger_or_equal = false;
-                break;
-            }
-        }
-        
-        if(found_bigger_or_equal){
-            for(var i = left_pointer + 1; i < right_pointer; i++){
-                running_total_trap_water = running_total_trap_water + Math.min(height[left_pointer], height[right_pointer]) - height[i];
+            // advance the left
+            left = left + 1;            
+        }else{
+            running_water = running_water + ((Math.min(max_left, max_right) - height[right]) <= 0 ? 0 : (Math.min(max_left, max_right) - height[right]));
+            if(max_right < height[right]){
+                max_right = height[right];
             }
 
-            left_pointer = right_pointer;
-            right_pointer = right_pointer + 1;
+            // decrease right
+            right = right - 1;
         }
-        else{
-            // if not found, advance forward
-            left_pointer = left_pointer + 1;
-            right_pointer = left_pointer + 1;
-        }
+
     }
-    return running_total_trap_water;
-};
+    return running_water;
+}
 
 //console.log(trap([0,1,0,2,1,0,1,3,2,1,2,1]));
-
-console.log(trap([4,2,3]));
+console.log(trap([4,2,0,3,2,5]));
+//console.log(trap([4, 2, 3]));
