@@ -1,6 +1,6 @@
 //https://leetcode.com/problems/longest-repeating-character-replacement/
 
-function characterReplacement(s: string, k: number): number {
+function characterReplacement_notwork(s: string, k: number): number {
     var dict = {};
     var max_count = 0;
     var starting = true;
@@ -41,4 +41,4 @@ function characterReplacement(s: string, k: number): number {
     return max_count;
 };
 
-console.log(characterReplacement("BAAA", 0));
+console.log(characterReplacement("ABBB", 2));
