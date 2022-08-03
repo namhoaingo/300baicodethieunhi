@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\SlidingWindow\\LongestRepeatingCharaterReplacement_work.ts",
+            "program": "${workspaceFolder}\\SlidingWindow\\PermutationString.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
