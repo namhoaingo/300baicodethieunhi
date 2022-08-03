@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\SlidingWindow\\LongestSubstring_cach2.ts",
+            "program": "${workspaceFolder}\\SlidingWindow\\LongestRepeatingCharacterReplacement.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
