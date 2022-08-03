@@ -1,6 +1,6 @@
 //https://leetcode.com/problems/permutation-in-string/
 
-function checkInclusion(s1: string, s2: string): boolean {
+function checkInclusion_badperfomance(s1: string, s2: string): boolean {
     // add all s1 into a dictionary with count for each word
     var s1_dict = {};
     var s1_len = s1.length;
@@ -47,7 +47,7 @@ function checkInclusion(s1: string, s2: string): boolean {
     return false;
 };
 
-console.log(checkInclusion("abcdxabcde", "abcdeabcdx"));
+//console.log(checkInclusion_badperfomance("abcdxabcde", "abcdeabcdx"));
 
 // Runtime: 5174 ms, faster than 13.07% of TypeScript online submissions for Permutation in String.
 // Memory Usage: 51.4 MB, less than 15.55% of TypeScript online submissions for Permutation in String.
