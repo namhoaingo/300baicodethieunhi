@@ -6,6 +6,11 @@ function characterReplacement(s: string, k: number): number {
    var right = 0;
    var current_max = 0;
    var already_added = false;
+   // Instead of doing while
+   // We can do a for each here
+   // Do a for each will avoid the problem of already_added issue
+   // because the right always increase no mater what. 
+   // It will simply the problem a bit more
    while(right < s.length){
         
         if(!already_added){
