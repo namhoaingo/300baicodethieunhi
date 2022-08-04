@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-        "program": "${workspaceFolder}\\SlidingWindow\\Minimum_window_substring_better.ts",
+        "program": "${workspaceFolder}\\Stack\\ValidParentheses.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
