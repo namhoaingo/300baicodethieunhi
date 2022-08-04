@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\SlidingWindow\\PermutationString_better.ts",
+        "program": "${workspaceFolder}\\SlidingWindow\\Minimum_window_substring.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
