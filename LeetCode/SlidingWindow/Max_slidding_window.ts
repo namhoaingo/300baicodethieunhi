@@ -21,5 +21,7 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
                 current_max = nums[right];
             }
         }
+
+        return new Array();
     }
 };
