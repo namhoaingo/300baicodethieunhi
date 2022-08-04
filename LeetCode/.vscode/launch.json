@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-        "program": "${workspaceFolder}\\SlidingWindow\\Minimum_window_substring.ts",
+        "program": "${workspaceFolder}\\SlidingWindow\\Minimum_window_substring_better.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

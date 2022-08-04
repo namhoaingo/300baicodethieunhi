@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/minimum-window-substring/
-function minWindow(s: string, t: string): string {
+function minWindow_badperf(s: string, t: string): string {
     // neu still good, move left
     // neu bad, move right
 
@@ -30,7 +30,7 @@ function minWindow(s: string, t: string): string {
                 // Cho vao s_dict                
                 s_dict[s[current_inspect_index]] = s_dict[s[current_inspect_index]] + 1;
                 // determine the is Match
-                isMatched = determind_is_match(s_dict, t_dict);
+                isMatched = determind_is_match_badperf(s_dict, t_dict);
             }
         }
         else{
@@ -55,7 +55,7 @@ function minWindow(s: string, t: string): string {
                 // t contain the char ---> change s_dict
                 s_dict[s[current_inspect_index]] = s_dict[s[current_inspect_index]]-1;
             }
-            isMatched = determind_is_match(s_dict, t_dict);
+            isMatched = determind_is_match_badperf(s_dict, t_dict);
             left = left + 1;
             // dont change right
             right = right - 1;
@@ -68,7 +68,7 @@ function minWindow(s: string, t: string): string {
 };
 
 
-function determind_is_match(s_dict: Object, t_dict: Object): boolean{
+function determind_is_match_badperf(s_dict: Object, t_dict: Object): boolean{
     for (var t in t_dict){
         if(t_dict[t] > s_dict[t]){
             return false;
@@ -77,7 +77,7 @@ function determind_is_match(s_dict: Object, t_dict: Object): boolean{
     return true;
 }
 
-console.log(minWindow("cabwefgewcwaefgcf","cae"));
+console.log(minWindow_badperf("cabwefgewcwaefgcf","cae"));
 
 
 // Runtime: 515 ms, faster than 8.90% of TypeScript online submissions for Minimum Window Substring.
