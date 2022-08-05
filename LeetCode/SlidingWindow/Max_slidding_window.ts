@@ -13,3 +13,29 @@ function maxSlidingWindow(nums: number[], k: number): number[] {
     
     return new Array();
 };
+
+class DoubleEndedQueue{
+    private _headNode : QueueNode; 
+    private _tailNode : QueueNode; 
+    private _size : Number;
+
+    constructor(){
+        this._size = 0;
+    }
+
+    // Add Head
+    // Remove Head
+    // Add Tail
+    // Remove Tail
+
+}
+
+class QueueNode{
+    private _value: number;
+    private _leftNode: QueueNode;
+    private _rightNode: QueueNode;
+
+    constructor(value: number){
+        this._value = value;
+    }
+}
