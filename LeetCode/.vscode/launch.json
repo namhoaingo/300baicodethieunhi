@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-        "program": "${workspaceFolder}\\Stack\\ValidParentheses.ts",
+        "program": "${workspaceFolder}\\SlidingWindow\\Max_slidding_window.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

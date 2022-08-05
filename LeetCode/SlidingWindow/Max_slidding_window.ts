@@ -10,7 +10,19 @@
 //2. 
 function maxSlidingWindow(nums: number[], k: number): number[] {
 
-
+   var doubleQueue = new DoubleEndedQueue();
+   doubleQueue.addHead(1);
+   doubleQueue.printFromHead();
+   doubleQueue.addHead(2);
+   doubleQueue.printFromHead();
+   doubleQueue.addHead(3);
+   doubleQueue.printFromHead();
+   doubleQueue.addHead(4);
+   doubleQueue.printFromHead();
+   doubleQueue.addHead(5);
+   doubleQueue.printFromHead();
+   doubleQueue.printFromTail();
+   
     return new Array();
 };
 
@@ -29,8 +41,8 @@ class DoubleEndedQueue {
         if(this._size > 0){
             var current = this._headNode;
             this._headNode = newHeadNode;
-            this._headNode.setRightNode(current);
-            current.setLeftNode(newHeadNode);
+            this._headNode.setRight(current);
+            current.setLeft(newHeadNode);
         }
         else{
            this._headNode = newHeadNode;
@@ -44,8 +56,8 @@ class DoubleEndedQueue {
        if(this._size > 1){
             var currentHead = this._headNode;
             this._headNode = currentHead.getRight();
-            this._headNode.setLeftNode(null);
-            currentHead.setRightNode(null);
+            this._headNode.setLeft(null);
+            currentHead.setRight(null);
             this._size = this._size - 1;
             return currentHead;
         }
@@ -65,20 +77,57 @@ class DoubleEndedQueue {
     addTail(value: number): void {
         if(this._size > 0){
             var newTailNode = new QueueNode(value);
-
+            var currentTail = this._tailNode;
+            this._tailNode = newTailNode;
+            currentTail.setRight(newTailNode);
+            this._tailNode.setLeft(currentTail);
+            this._size = this._size + 1;
+        }
+        else if(this._size == 0){
+            var newTailNode = new QueueNode(value);
+            this._tailNode = newTailNode;
+            this._headNode = newTailNode;
+            this._size = this._size + 1; 
         }
     }
 
-    rightNode(): QueueNode {
-        return this._leftNode;
+    removeTail(): QueueNode{
+        if(this._size == 0){
+            return null;
+        }
+        else if(this._size == 1){
+            var currentTail = this._headNode;
+            this._headNode = null;
+            this._tailNode = null;
+            this._size = 0;
+            return currentTail;
+        }
+        else{
+            var currentTail = this._tailNode;
+            this._tailNode = currentTail.getLeft();
+            this._tailNode.setRight(null);
+            currentTail.setLeft(null);
+            this._size = this._size - 1;
+            return currentTail;
+        }
     }
 
-    setLeftNode(node: QueueNode): void {
-        this._leftNode = node;
+    printFromHead(): void{
+        console.log("****************************************");
+        var currentNode = this._headNode;
+        while(currentNode != null){
+            console.log(currentNode.value());
+            currentNode = currentNode.getRight();
+        }
     }
 
-    setRightNode(node: QueueNode): void {
-        this._rightNode = node;
+    printFromTail(): void{
+        console.log("****************************************");
+        var currentNode = this._tailNode;
+        while(currentNode != null){
+            console.log(currentNode.value());
+            currentNode = currentNode.getLeft();
+        }
     }
 }
 
@@ -109,4 +158,9 @@ class QueueNode{
     setRight(rightNode: QueueNode): void{
         this._rightNode = rightNode;
     }
+
+    value(): number{
+        return this._value;
+    }
 }
+console.log(maxSlidingWindow([1], 2));
