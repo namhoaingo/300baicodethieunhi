@@ -43,7 +43,7 @@ class DoubleEndedQueue {
     removeHead(): QueueNode {
        if(this._size > 1){
             var currentHead = this._headNode;
-            this._headNode = currentHead.rightNode();
+            this._headNode = currentHead.getRight();
             this._headNode.setLeftNode(null);
             currentHead.setRightNode(null);
             this._size = this._size - 1;
