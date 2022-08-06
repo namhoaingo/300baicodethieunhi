@@ -27,7 +27,7 @@ class MinStack {
     }
 
     top(): number{
-        return this._normalStack.pop();
+        return this._normalStack.top();
     }
 
     getMin(): number {
@@ -64,8 +64,7 @@ class NormalStack{
             this._topOfNormalStack = null;
        }
        else{
-            var temp = this._topOfNormalStack;
-            this._topOfNormalStack.setRight(temp.getRight());
+            this._topOfNormalStack = currentTop.getRight();
        }
 
        this._size = this._size - 1;
@@ -80,11 +79,9 @@ class NormalStack{
 class IncreasingStack extends NormalStack{
     // Bigger than top thi NO CARE
     // Small than top thi insert on left
-    private _topOfIncreasingStack: StackNode;
     private _sizeIncreasingStack: number;
     constructor(){
         super();
-        this._topOfIncreasingStack = null;
         this._sizeIncreasingStack = 0;        
     }
 
@@ -95,7 +92,7 @@ class IncreasingStack extends NormalStack{
         }
         else{
             var currentTop = this.top();
-            if(value < currentTop){
+            if(value <= currentTop){
                 super.push(value); 
                 this._sizeIncreasingStack++;
             }    
@@ -109,9 +106,6 @@ class IncreasingStack extends NormalStack{
         }
     }
 
-    top(): number{
-        return this._topOfIncreasingStack.value();
-    }
 }
 
 class StackNode{
@@ -151,7 +145,13 @@ var minStack = new MinStack();
 
 minStack.push(1);
 minStack.push(2);
-minStack.push(3);
+console.log(minStack.top());
 console.log(minStack.getMin());
+minStack.pop();
 
+console.log(minStack.getMin());
+console.log(minStack.top());
 // end Testing
+
+//Runtime: 131 ms, faster than 86.49% of TypeScript online submissions for Min Stack.
+//Memory Usage: 52.4 MB, less than 10.00% of TypeScript online submissions for Min Stack.
