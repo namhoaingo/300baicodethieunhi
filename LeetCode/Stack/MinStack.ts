@@ -9,49 +9,108 @@
 class MinStack {
     // Stack la first in last out
     // put thing ONTOP of each other
-    private _min: number;
-    private _topOfStack: StackNode;
-    private _size: number;
+    private _normalStack: NormalStack;
+    private _increasingStack: IncreasingStack;
     constructor() {
-        // Init the stack object
-        this._min = Math.min();
-        this._size = 0;
+        this._normalStack = new NormalStack();
+        this._increasingStack = new IncreasingStack();
     }
 
-    push(val: number): void {
-        var newNode = new StackNode(val);
-        // pushes the element val onto the stack
-        if(this._size == 0) {
-            this._topOfStack = newNode;
-        }
-        else{
-            var temp = this._topOfStack;
-            this._topOfStack = newNode;
-            newNode.setRight(temp);
-        }
-        this._min = Math.min(this._min, val);
-        this._size = this._size + 1;
+    push(val: number): void{
+        this._normalStack.push(val);
+        this._increasingStack.push(val);
     }
 
-    pop(): void {
-       // remove the element on top of the stack 
-       if(this._size == 1){
-            this._topOfStack = null;
-       }
-       else{
-            var temp = this._topOfStack;
-            this._topOfStack.setRight(temp.getRight());
-       }
-
-       this._size = this._size - 1;
+    pop(): void{
+        var poppingValue = this._normalStack.pop();
+        this._increasingStack.popIncreasingStack(poppingValue);
     }
 
-    top(): number {
-       // get the top element of the stack 
+    top(): number{
+        return this._normalStack.pop();
     }
 
     getMin(): number {
         // retrieve the minmum element of the stack
+        return this._increasingStack.top();
+    }
+}
+
+class NormalStack{
+    private _topOfNormalStack: StackNode;
+    private _size: number;
+    constructor(){
+        this._size = 0;
+        this._topOfNormalStack = null;
+    }
+    push(val: number): void {
+        var newNode = new StackNode(val);
+        // pushes the element val onto the stack
+        if(this._size == 0) {
+            this._topOfNormalStack = newNode;
+        }
+        else{
+            var temp = this._topOfNormalStack;
+            this._topOfNormalStack = newNode;
+            newNode.setRight(temp);
+        }
+        this._size = this._size + 1;
+    }
+
+    pop(): number {
+       // remove the element on top of the stack 
+       var currentTop = this._topOfNormalStack;
+       if(this._size == 1){
+            this._topOfNormalStack = null;
+       }
+       else{
+            var temp = this._topOfNormalStack;
+            this._topOfNormalStack.setRight(temp.getRight());
+       }
+
+       this._size = this._size - 1;
+       return currentTop.value();
+    }
+    
+    top(): number {
+        return this._topOfNormalStack.value();
+    }
+}
+
+class IncreasingStack extends NormalStack{
+    // Bigger than top thi NO CARE
+    // Small than top thi insert on left
+    private _topOfIncreasingStack: StackNode;
+    private _sizeIncreasingStack: number;
+    constructor(){
+        super();
+        this._topOfIncreasingStack = null;
+        this._sizeIncreasingStack = 0;        
+    }
+
+    push(value: number): void{
+        if(this._sizeIncreasingStack ==0){
+            super.push(value);            
+            this._sizeIncreasingStack++;
+        }
+        else{
+            var currentTop = this.top();
+            if(value < currentTop){
+                super.push(value); 
+                this._sizeIncreasingStack++;
+            }    
+        }    
+    }
+
+    popIncreasingStack(value: number): void{
+        if(value == this.top()){
+            super.pop();
+            this._sizeIncreasingStack--;
+        }
+    }
+
+    top(): number{
+        return this._topOfIncreasingStack.value();
     }
 }
 
@@ -85,3 +144,14 @@ class StackNode{
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()
  */
+
+// region Testing 
+
+var minStack = new MinStack();
+
+minStack.push(1);
+minStack.push(2);
+minStack.push(3);
+console.log(minStack.getMin());
+
+// end Testing
