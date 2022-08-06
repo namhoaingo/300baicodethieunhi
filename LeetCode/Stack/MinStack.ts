@@ -37,14 +37,14 @@ class MinStack {
 }
 
 class NormalStack{
-    private _topOfNormalStack: StackNode;
+    private _topOfNormalStack: StackNodeMinStack;
     private _size: number;
     constructor(){
         this._size = 0;
         this._topOfNormalStack = null;
     }
     push(val: number): void {
-        var newNode = new StackNode(val);
+        var newNode = new StackNodeMinStack(val);
         // pushes the element val onto the stack
         if(this._size == 0) {
             this._topOfNormalStack = newNode;
@@ -108,9 +108,9 @@ class IncreasingStack extends NormalStack{
 
 }
 
-class StackNode{
+class StackNodeMinStack{
     private _value: number;
-    private _right: StackNode;
+    private _right: StackNodeMinStack;
 
     constructor(value: number){
         this._value = value;
@@ -120,11 +120,11 @@ class StackNode{
         return this._value;
     }
 
-    setRight(node: StackNode): void{
+    setRight(node: StackNodeMinStack): void{
         this._right = node;
     }
 
-    getRight(): StackNode{
+    getRight(): StackNodeMinStack{
         return this._right;
     }
 

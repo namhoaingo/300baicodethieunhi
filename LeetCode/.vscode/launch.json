@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-        "program": "${workspaceFolder}\\Stack\\EvaluatePoslishReverseNotation.ts",
+        "program": "${workspaceFolder}\\Stack\\GenerateParenthesis.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
