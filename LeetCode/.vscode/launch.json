@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-        "program": "${workspaceFolder}\\Stack\\GenerateParenthesis.ts",
+        "program": "${workspaceFolder}\\Stack\\DailyTemp.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
