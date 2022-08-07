@@ -133,3 +133,4 @@ console.log(generateParenthesis(4));
 //Runtime: 86 ms, faster than 77.75% of TypeScript online submissions for Generate Parentheses.
 //Memory Usage: 44.9 MB, less than 53.66% of TypeScript online submissions for Generate Parentheses.
 // I did not do this by myself, I need a HUGE help from the solution
+// SU ket hop vl giua BACK TRACKING va Stack (nhung khi in thi phai in tu cuoi) ==> qua kho
