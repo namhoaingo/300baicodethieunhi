@@ -34,15 +34,18 @@ function generate(openN: number, closeN: number,
 class GenericStack<T>{
     private _head: StackNode<T>;
     private _size: number;
-
+    private _tail: StackNode<T>;
+    
     constructor(){
         this._head = null;
+        this._tail = null;
         this._size = 0;
     }
 
     pop(): void{
         if(this._size <= 1){
-            this._head = null; 
+            this._head = null;
+            this._tail = null; 
             this._size = 0;
         }
         else{
@@ -57,12 +60,13 @@ class GenericStack<T>{
         var newNode = new StackNode(value);
         if(this._size == 0){
             this._head = newNode;
+            this._tail = newNode;
         }
         else{
             var temp = this._head;
             this._head = newNode;
             newNode.setRight(temp);
-            
+            temp.setLeft(this._head);
         }
         this._size++;
     }
@@ -72,20 +76,22 @@ class GenericStack<T>{
     }
 
     toString(): string{
-        var currentNode = this._head;
-        var result: string;
+        // TO string nen nguoc lai, vi the hien
+        // la cai nao nen pop truoc
+         var currentNode = this._tail;
+         var result = "";
         while(currentNode != null){
             result = result + currentNode.value();
-            currentNode = currentNode.getRight();
-        }
+            currentNode = currentNode.getLeft();
+        } 
         return result;
     }
 
     print(): void{
-        var currentNode = this._head;
+        var currentNode = this._tail;
         while(currentNode != null){
             console.log(currentNode.value());
-            currentNode = currentNode.getRight();
+            currentNode = currentNode.getLeft();
         }
     }
 }
@@ -93,7 +99,8 @@ class GenericStack<T>{
 class StackNode<T>{
     private _value: T;
     private _rightNode: StackNode<T>;
-
+    private _leftNode: StackNode<T>;
+    
     constructor(value: T){
         this._value = value;
     }    
@@ -109,7 +116,20 @@ class StackNode<T>{
     setRight(stackNode: StackNode<T>){
         this._rightNode = stackNode;
     }
+
+    getLeft(): StackNode<T>{
+        return this._leftNode;
+    }
+    
+    setLeft(stackNode: StackNode<T>){
+        this._leftNode = stackNode;
+    }
 }
 
 
-console.log(generateParenthesis(3));
+console.log(generateParenthesis(4));
+
+
+//Runtime: 86 ms, faster than 77.75% of TypeScript online submissions for Generate Parentheses.
+//Memory Usage: 44.9 MB, less than 53.66% of TypeScript online submissions for Generate Parentheses.
+// I did not do this by myself, I need a HUGE help from the solution
