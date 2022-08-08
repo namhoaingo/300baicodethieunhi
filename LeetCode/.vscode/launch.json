@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-        "program": "${workspaceFolder}\\Stack\\LargestRectangleHistogram_bruceforce.ts",
+        "program": "${workspaceFolder}\\BinarySearch\\BasicBinarySearch.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
