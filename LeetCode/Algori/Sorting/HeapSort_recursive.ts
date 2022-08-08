@@ -1,9 +1,9 @@
-function heapSortRecursive(inputs: number[]){
+function heapSortRecursiveMain(inputs: number[]){
     var current_last_index = inputs.length-1;
     for(var j = 0; j< inputs.length; j++){
         for(var i = current_last_index; i >= 0; i--){
             // correct
-            heapSort(inputs, i, current_last_index);    
+            heapSortRecursive(inputs, i, current_last_index);    
             // Neu doi current_last_index thanh inputs.length
             // thi duoc array tu to den nho 
         }
@@ -12,7 +12,7 @@ function heapSortRecursive(inputs: number[]){
     }
 }
 
-function heapSort(inputs: number[], currentIndex: number, lastIndex: number){
+function heapSortRecursive(inputs: number[], currentIndex: number, lastIndex: number){
     var leftIndex = currentIndex * 2 + 1;
     var rightIndex = currentIndex * 2 + 2;
 
@@ -21,19 +21,19 @@ function heapSort(inputs: number[], currentIndex: number, lastIndex: number){
         if( inputs[currentIndex] < Math.max(inputs[leftIndex], inputs[rightIndex])){
             if(inputs[rightIndex] > inputs[leftIndex]){
                 swap_for_heapsort_recursive(inputs, currentIndex, rightIndex);
-                heapSort(inputs, rightIndex, lastIndex);
+                heapSortRecursive(inputs, rightIndex, lastIndex);
             }
             else if(inputs[currentIndex] < inputs[leftIndex]){
                 swap_for_heapsort_recursive(inputs, currentIndex, leftIndex);
-                heapSort(inputs, leftIndex, lastIndex)
+                heapSortRecursive(inputs, leftIndex, lastIndex)
             }             
         } 
     }else if(leftIndex <= lastIndex && inputs[currentIndex] < inputs[leftIndex]){
         swap_for_heapsort_recursive(inputs, currentIndex, leftIndex);
-        heapSort(inputs, leftIndex, lastIndex);
+        heapSortRecursive(inputs, leftIndex, lastIndex);
     } else if(rightIndex <= lastIndex && inputs[currentIndex] < inputs[rightIndex]){
         swap_for_heapsort_recursive(inputs, currentIndex, rightIndex);
-        heapSort(inputs, rightIndex, lastIndex);
+        heapSortRecursive(inputs, rightIndex, lastIndex);
     }
 }
 
@@ -44,5 +44,5 @@ function swap_for_heapsort_recursive(inputs: number[], first_index: number, seco
 }
 
 var inputs = [2,1,8,9,10,0];
-heapSortRecursive(inputs);
+heapSortRecursiveMain(inputs);
 console.log(inputs);
