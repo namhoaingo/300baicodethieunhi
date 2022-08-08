@@ -4,7 +4,7 @@
 function carFleet(target: number, position: number[], speed: number[]): number {
     // first create car array
     var cars = new Array<SingleCar>();
-    for(var i = 0; i < position.length - 1; i++){
+    for(var i = 0; i < position.length ; i++){
         var car = new SingleCar(speed[i], position[i], target);
         cars.push(car);
     }
@@ -220,4 +220,6 @@ function swap_heap_carfleet(cars: SingleCar[], a_index: number, b_index: number)
     cars[b_index] = temp;
 }
 
-//console.log(carFleet(12, [10,8,0,5,3], [2,4,1,1,3]));
+console.log(carFleet(10, [3], [3]));
+//Runtime: 496 ms, faster than 11.67% of TypeScript online submissions for Car Fleet.
+//Memory Usage: 79.7 MB, less than 15.00% of TypeScript online submissions for Car Fleet.
