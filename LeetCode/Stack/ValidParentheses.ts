@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/valid-parentheses/
-function isValid(s: string): boolean {
+function isValidParent(s: string): boolean {
     var newStack = new stack();
     var matching = true;
     var pushingString = {"[": 1, "(": 1, "{": 1};
@@ -113,4 +113,4 @@ class stack_node{
     }
 }
 
-console.log(isValid("(]"));
+console.log(isValidParent("(]"));
