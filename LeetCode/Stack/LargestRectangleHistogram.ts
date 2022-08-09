@@ -1,4 +1,4 @@
 //https://leetcode.com/problems/largest-rectangle-in-histogram/
-function largestRectangleArea(heights: number[]): number {
-
+function largestRectangleArea_usingStack(heights: number[]): number {
+    return 2;
 };

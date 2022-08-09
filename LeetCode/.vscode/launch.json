@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\BinarySearch\\BasicBinarySearch.ts",
+            "program": "${workspaceFolder}\\BinarySearch\\Search2DMatrix.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
