@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\BinarySearch\\SearchRotatedSortedArray_looking_at_sln.ts",
+            "program": "${workspaceFolder}\\BinarySearch\\FindMinNumInRotatedSortArray.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
