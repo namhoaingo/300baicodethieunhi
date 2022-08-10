@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/binary-search/
-function search(nums: number[], target: number): number {
+function serachBasicBinary(nums: number[], target: number): number {
     var start = 0;
     var end = nums.length - 1;
 
@@ -18,7 +18,7 @@ function search(nums: number[], target: number): number {
         }
 };
 
-console.log(search([-1,0,3,5,9,12], 9));
+console.log(serachBasicBinary([-1,0,3,5,9,12], 9));
 
 //Runtime: 86 ms, faster than 80.26% of TypeScript online submissions for Binary Search.
 //Memory Usage: 45.7 MB, less than 77.45% of TypeScript online submissions for Binary Search.

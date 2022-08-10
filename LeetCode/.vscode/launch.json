@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\BinarySearch\\KokoBananas_bruceforce.ts",
+            "program": "${workspaceFolder}\\BinarySearch\\SearchRotatedSortedArray_looking_at_sln.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
