@@ -16,6 +16,9 @@ class TimeMap {
         var restulTimeStampIndex = -1; 
         var left_index = 0;
         var right_index = this._timeStampArray.length-1;
+        if(timestamp < this._timeStampArray[left_index].Time()){
+            return "";
+        }
         // Use binary search
         while(true){
             var mid_index = Math.floor((left_index + right_index) / 2);
@@ -38,8 +41,13 @@ class TimeMap {
                 left_index = mid_index;
             }
         }
-
-        return this._timeStampArray[restulTimeStampIndex].Value();
+           
+        // check current and walk back until find the key
+        while(true)
+        {
+            
+        }
+            return this._timeStampArray[restulTimeStampIndex].Value();
     }
 }
 
@@ -77,7 +85,7 @@ class TimeValueOject{
 
 
   function get_test(): number {
-        var timestamp = 4;    
+        var timestamp = 0;    
         var testArray = [1,4];
         var restulTimeStampIndex = -1; 
         var left_index = 0;
