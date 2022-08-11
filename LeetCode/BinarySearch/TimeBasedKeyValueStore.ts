@@ -43,11 +43,15 @@ class TimeMap {
         }
            
         // check current and walk back until find the key
-        while(true)
+        while(restulTimeStampIndex >= 0)
         {
-            
-        }
+           if(this._timeStampArray[restulTimeStampIndex].Key() == key){
             return this._timeStampArray[restulTimeStampIndex].Value();
+           }
+           restulTimeStampIndex--; 
+        }
+
+        return "";
     }
 }
 
@@ -123,3 +127,5 @@ class TimeValueOject{
     }
 
 console.log(get_test());
+//Runtime: 686 ms, faster than 43.75% of TypeScript online submissions for Time Based Key-Value Store.
+//Memory Usage: 101.9 MB, less than 52.08% of TypeScript online submissions for Time Based Key-Value Store.
