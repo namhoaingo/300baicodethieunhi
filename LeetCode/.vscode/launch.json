@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\BinarySearch\\TimeBasedKeyValueStore.ts",
+            "program": "${workspaceFolder}\\LinkedList\\ReverseLinkedList.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
