@@ -48,40 +48,7 @@ class ContainerListNodeReorderList{
 }
 
 function reorderList(head: ListNodeReoderList | null): void {
-    let size = 0;
-   // create a reverse list
-   let newHeadNode = null;
-
-   let current = head;
-   while(current){
-     let temp = newHeadNode;
-     let newNode = new ListNodeReoderList(current.val);
-     newHeadNode = newNode;
-     newNode.next = temp;
-     current = current.next;
-     size++;
-   }
    
-   // swap in place
-   let array1 = head;
-   let array2 = newHeadNode;
-   //array1.next = null;
-   //array2.next = null;
-   for(let i = 0; i < Math.floor((size) / 2); i++){
-            // swap
-            let temp1 = array1.next;
-            let newNodeFrom2 = new ListNodeReoderList(array2.val);
-
-            array1.next = newNodeFrom2;
-            if(i == Math.floor(size/2)-1 && size %2 != 0){
-                newNodeFrom2.next = temp1;
-            }
-            array1 = temp1
-            array2 = array2.next;
-   }
-
-   array2.next = null;
-   array1.next = null;
 };
 
 var test = new ContainerListNodeReorderList();
