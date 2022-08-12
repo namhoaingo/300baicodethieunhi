@@ -7,12 +7,12 @@
 */ 
 
 class LinkedList{
-    private _head: ListNode;
+    private _head: ListNodeReverseLinkedList;
     constructor(){
         this._head = null;
     }
 
-    add(node: ListNode){        
+    add(node: ListNodeReverseLinkedList){        
         var current = this._head;
         if(current==null){
             this._head = node;
@@ -25,10 +25,10 @@ class LinkedList{
         }
     }
 
-    reverseList(): ListNode | null {
+    reverseList(): ListNodeReverseLinkedList | null {
         var current = this._head; 
-        var nxt: ListNode = null; 
-        var prev: ListNode = null;
+        var nxt: ListNodeReverseLinkedList = null; 
+        var prev: ListNodeReverseLinkedList = null;
 
         while(current != null){
             // keep changing 
@@ -41,10 +41,10 @@ class LinkedList{
     }
 }
 
-class ListNode {
+class ListNodeReverseLinkedList {
       val: number
-      next: ListNode | null
-      constructor(val?: number, next?: ListNode | null) {
+      next: ListNodeReverseLinkedList | null
+      constructor(val?: number, next?: ListNodeReverseLinkedList | null) {
           this.val = (val===undefined ? 0 : val)
           this.next = (next===undefined ? null : next)
       }
@@ -52,11 +52,11 @@ class ListNode {
 
 
 var linkedList = new LinkedList();
-linkedList.add(new ListNode(1));
-linkedList.add(new ListNode(2));
-linkedList.add(new ListNode(3));
-linkedList.add(new ListNode(4));
-linkedList.add(new ListNode(5));
+linkedList.add(new ListNodeReverseLinkedList(1));
+linkedList.add(new ListNodeReverseLinkedList(2));
+linkedList.add(new ListNodeReverseLinkedList(3));
+linkedList.add(new ListNodeReverseLinkedList(4));
+linkedList.add(new ListNodeReverseLinkedList(5));
 
 linkedList.reverseList();
 
