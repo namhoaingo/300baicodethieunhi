@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\LinkedList\\RemoveFromN_looptwice.ts",
+            "program": "${workspaceFolder}\\LinkedList\\CopyListWithRandomPointer.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
