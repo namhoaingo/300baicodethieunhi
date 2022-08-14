@@ -2,7 +2,7 @@
 
 
 function findDuplicate(nums: number[]): number {
-    var 
+    return 0;
 };
 
 
