@@ -1,92 +1,109 @@
 //https://leetcode.com/problems/lru-cache/
 
 class LRUCache {
-    private _capacity: number;
+    private _maxCapacity: number;
     private _head: LRUCacheNode = null;
     private _tail: LRUCacheNode = null;
     private _dictionary: Object;
     private _currentCapacity: number;
 
     constructor(capacity: number) {
-        this._capacity = capacity;
+        this._maxCapacity = capacity;
         this._dictionary = {};
         this._currentCapacity = 0;
     }
 
     get(key: number): number {
-        // move the position on top
-        let accessingNode = this._dictionary[key];
-        if(!accessingNode){
-            return -1; 
+        if(this._dictionary[key]){
+            let accessingNode = this._dictionary[key];
+            // update the position
+            this.moveCurrentNodeToTop(accessingNode);
+            return accessingNode.val;
         }
-        else{
-            let currentHead = this._head;
-            if(accessingNode != currentHead){
-                if(accessingNode == this._tail){
-                    this._tail = accessingNode.prev;
-                    if(accessingNode.prev){
-                        accessingNode.prev.next = null;
-                    }                    
-                }
-                else{
-                    accessingNode.prev = accessingNode.next;
-                    accessingNode.next.prev = accessingNode.prev;
-                }
-                // move to the head
-                this._head = accessingNode;
-                accessingNode.next = currentHead;
-                currentHead.prev = accessingNode;
-            }
-            return accessingNode.val; 
-        }
-   }
+        return -1;
+    }
 
     put(key: number, value: number): void {
+        //add 
+        let addingNode = new LRUCacheNode(value, key);
         if(!this._dictionary[key]){
-            let newNode = new LRUCacheNode(value, key);
-            if(!this._head){
-                    // empty
-                this._head = newNode;
-                this._tail = newNode;
-                this._dictionary[key] = newNode;
-                this._currentCapacity++;
-            }else{
-                // have to reshuffle a bit. 
-                // add a new node
-                if(this._currentCapacity < this._capacity)
-                {
-                    let tempHead = this._head;
-                    this._head = newNode;
-                    newNode.next = tempHead;
-                    tempHead.prev = newNode;
-                    this._dictionary[key] = newNode;
-                    this._currentCapacity++;
-                }
-                else{
-                    // remove an old one from the bottom
-
-                    let currentTail = this._tail;
-                    if(currentTail.prev == null){
-                        this._tail = newNode;                    
-                    }
-                    else{
-                        currentTail.prev.next = null;
-                        this._tail = currentTail.prev;
-                        // add to head
-
-                        let tempHead = this._head;
-                        this._head = newNode;
-                        newNode.next = tempHead;
-                        tempHead.prev = newNode;
-                    }
-                        delete this._dictionary[currentTail.key];
-                        this._dictionary[key] = newNode;            
-                    
-                }
+            // add only 
+            if(this._currentCapacity < this._maxCapacity){
+                
+                this.addToHead(addingNode);
+                this._dictionary[key] = addingNode;  
             }
+            else{
+            // remove and add since capacity is reached
+                let removingNodeFromTail = this.removeFromTail();
+                this.addToHead(addingNode);
+                delete this._dictionary[removingNodeFromTail.key];
+                this._dictionary[key] = addingNode;
+            }
+        }else{
+            // update
+            let updatingNode = this._dictionary[key];
+            updatingNode.val = value;
+
+            // update the position in the queue to top
+            this.moveCurrentNodeToTop(updatingNode);
+
+        }
+    }
+
+    private addToHead(newNode: LRUCacheNode){
+        if(this._head){
+           let tempHead = this._head;
+           this._head = newNode;
+           newNode.next = tempHead;
+           tempHead.prev = newNode; 
         }
         else{
-            
+            this._head = newNode;
+            this._tail = newNode;
+        }
+        this._currentCapacity++;
+    }
+
+    private removeFromTail(): LRUCacheNode{
+        let tailNode: LRUCacheNode = this._tail;
+        if(this._head == this._tail && this._currentCapacity == 1){
+            this._head = null;
+            this._tail = null;
+        }else{
+            let tempTailPrev = tailNode.prev;
+            tempTailPrev.next = null;
+            tailNode.prev = null;
+            this._tail = tempTailPrev;            
+        }
+        this._currentCapacity--;
+        return tailNode;
+    }
+
+    private removeFromMiddle(removedNode: LRUCacheNode): LRUCacheNode{
+        let prevNode = removedNode.prev;
+        let nextNode = removedNode.next;
+        prevNode.next = nextNode;
+        nextNode.prev = prevNode;
+        removedNode.next = null;
+        removedNode.prev = null;
+        this._currentCapacity--;
+        return removedNode;
+    }
+
+    private moveCurrentNodeToTop(currentNode: LRUCacheNode){
+        // 1. Node already at the top
+        if(this._head != currentNode){
+            if(this._tail == currentNode){
+                // Remove from Tail and add to the top
+                let removedTailNode = this.removeFromTail();
+                this.addToHead(removedTailNode);
+            }
+            else{
+                // Node in the middle of array
+                let removedTailNode = this.removeFromMiddle(currentNode);
+                this.addToHead(removedTailNode);
+            }
         }
     }
 }
@@ -106,13 +123,13 @@ class LRUCacheNode{
 }
 
 let testLRUCache = new LRUCache(2);
-testLRUCache.get(2);
+console.log(testLRUCache.get(2));
 testLRUCache.put(2,6);
-testLRUCache.get(1);
+console.log(testLRUCache.get(1));
 testLRUCache.put(1,5);
 testLRUCache.put(1,2);
-testLRUCache.get(1);
-testLRUCache.get(2);
+console.log(testLRUCache.get(1));
+console.log(testLRUCache.get(2));
 
 
 /**
@@ -127,3 +144,5 @@ testLRUCache.get(2);
 //[    [2],   [1, 1],   [2, 2],  [1],   [3, 3],  [2],   [4, 4],  [1],   [3],   [4]]
 //Output
 //[   null,    null,     null,    1,     null,    -1,    null,    -1,    3,     4]
+//Runtime: 869 ms, faster than 81.79% of TypeScript online submissions for LRU Cache.
+//Memory Usage: 121.4 MB, less than 84.64% of TypeScript online submissions for LRU Cache.
