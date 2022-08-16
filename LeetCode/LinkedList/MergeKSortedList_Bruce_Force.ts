@@ -31,16 +31,19 @@ class ContainerListNodeMergeKList{
 }
 
 function mergeKLists(lists: Array<ListNodeMergeKList | null>): ListNodeMergeKList | null {
-    return mergeSort_linkedList(0, lists.length - 1, lists);
+    return mergeSort_linkedList(lists);
 };
 
-function mergeSort_linkedList(start: number, end: number, lists: Array<ListNodeMergeKList | null>): ListNodeMergeKList{
-    if(start == end){
-        return lists[start];
+function mergeSort_linkedList(lists: Array<ListNodeMergeKList | null>): ListNodeMergeKList{
+    if(lists.length == 1){
+        return lists[0];
     }
-    let mid = Math.floor((start + end)/2);
-    let left = mergeSort_linkedList(start, mid, lists);
-    let right = mergeSort_linkedList(mid, end, lists);
+
+    let mid = Math.floor( lists.length/2);
+    let leftArray = lists.splice(0, mid);
+    let rightArray = lists.splice(mid, lists.length);
+    let left = mergeSort_linkedList(leftArray);
+    let right = mergeSort_linkedList(rightArray);
     let result = merge_linkedList(left, right);
     return result;
 }
@@ -53,36 +56,50 @@ function merge_linkedList(l1: ListNodeMergeKList, l2: ListNodeMergeKList): ListN
     let currentL2 = l2;
     while(currentL1 && currentL2){
         if(currentL1.val > currentL2.val){
-           newNodeHead = addtoNewNode(newNodeCurrent, newNodeHead, currentL2);
+            let addingNode = new ListNodeMergeKList(currentL2.val);
+            if(newNodeHead){
+                newNodeCurrent.next = addingNode;
+            }else{
+                newNodeCurrent = addingNode;
+                newNodeHead = addingNode;
+            }
+            currentL2 = currentL2.next;
+
+                newNodeCurrent = addingNode;
         }else{
-          newNodeHead =  addtoNewNode(newNodeCurrent, newNodeHead, currentL1);
+            let addingNode = new ListNodeMergeKList(currentL1.val);
+            if(newNodeHead){
+                newNodeCurrent.next = addingNode;
+            }else{
+                newNodeCurrent = addingNode;
+                newNodeHead = addingNode;
+            }
+            currentL1 = currentL1.next;
+
+                newNodeCurrent = addingNode;
         }
     }
 
     if(currentL1 && !currentL2){
-        newNodeHead = addtoNewNode(newNodeCurrent, newNodeHead, currentL1);
+        if(newNodeHead){
+                newNodeCurrent.next = currentL1;
+            }else{
+                newNodeCurrent = currentL1;
+                newNodeHead = currentL1;
+            } 
     }
 
     if(!currentL1 && currentL2){
-        newNodeHead = addtoNewNode(newNodeCurrent, newNodeHead, currentL2);
+        if(newNodeHead){
+                newNodeCurrent.next = currentL2;
+            }else{
+                newNodeCurrent = currentL2;
+                newNodeHead = currentL2;
+            }
     }
 
     return newNodeHead;
 }
-
-function addtoNewNode(newNodeCurrent: ListNodeMergeKList, newNodeHead: ListNodeMergeKList, smallerNode: ListNodeMergeKList){
-    if(newNodeCurrent){
-        newNodeCurrent.next = smallerNode;
-    }else{
-        newNodeCurrent = smallerNode;
-        newNodeHead = smallerNode;
-    }
-    newNodeCurrent = smallerNode;
-    smallerNode = smallerNode.next;
-
-    return newNodeHead;
-}
-
 
 
 // testing
@@ -100,4 +117,5 @@ let l3test = new ContainerListNodeMergeKList();
 l3test.add(2);
 l3test.add(6);
 
-mergeKLists(new Array<ListNodeMergeKList>(l1test.head, l2test.head, l3test.head));
+let resultMergeKList = mergeKLists(new Array<ListNodeMergeKList>(l1test.head, l2test.head, l3test.head));
+console.log(resultMergeKList);
