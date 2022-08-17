@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\LinkedList\\ReverseNodeKGroup.ts",
+            "program": "${workspaceFolder}\\LinkedList\\InvertBinaryTree.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
