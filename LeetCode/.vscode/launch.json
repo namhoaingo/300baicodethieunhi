@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\LinkedList\\MergeKSortedList_MergeSort_index.ts",
+            "program": "${workspaceFolder}\\LinkedList\\ReverseNodeKGroup.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
