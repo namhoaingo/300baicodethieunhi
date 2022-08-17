@@ -63,7 +63,7 @@ function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode
     }else{
         newListCurrent.next = current1;
     }
-    return newList;
+    return newList.next;
 };
 
 

@@ -38,6 +38,9 @@ function mergeSort_linkedList(lists: Array<ListNodeMergeKList | null>): ListNode
     if(lists.length == 1){
         return lists[0];
     }
+    else if(lists.length == 0){
+        return null;
+    }
 
     let mid = Math.floor( lists.length/2);
     let leftArray = lists.slice(0, mid);
@@ -103,19 +106,22 @@ function merge_linkedList(l1: ListNodeMergeKList, l2: ListNodeMergeKList): ListN
 
 
 // testing
-let l1test = new ContainerListNodeMergeKList();
-l1test.add(1);
-l1test.add(4);
-l1test.add(5);
+//let l1test = new ContainerListNodeMergeKList();
+//l1test.add(1);
+//l1test.add(4);
+//l1test.add(5);
 
-let l2test = new ContainerListNodeMergeKList();
-l2test.add(1);
-l2test.add(3);
-l2test.add(4);
+//let l2test = new ContainerListNodeMergeKList();
+//l2test.add(1);
+//l2test.add(3);
+//l2test.add(4);
 
-let l3test = new ContainerListNodeMergeKList();
-l3test.add(2);
-l3test.add(6);
+//let l3test = new ContainerListNodeMergeKList();
+//l3test.add(2);
+//l3test.add(6);
 
-let resultMergeKList = mergeKLists(new Array<ListNodeMergeKList>(l1test.head, l2test.head, l3test.head));
+let resultMergeKList = mergeKLists(new Array<ListNodeMergeKList>());
 console.log(resultMergeKList);
+//Runtime: 138 ms, faster than 82.48% of TypeScript online submissions for Merge k Sorted Lists.
+//Memory Usage: 51.7 MB, less than 11.81% of TypeScript online submissions for Merge k Sorted Lists.
+//Next challenge
