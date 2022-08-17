@@ -40,11 +40,11 @@ function mergeSort_linkedList(lists: Array<ListNodeMergeKList | null>): ListNode
     }
 
     let mid = Math.floor( lists.length/2);
-    let leftArray = lists.splice(0, mid);
-    let rightArray = lists.splice(mid, lists.length);
-    let left = mergeSort_linkedList(leftArray);
-    let right = mergeSort_linkedList(rightArray);
-    let result = merge_linkedList(left, right);
+    let leftArray = lists.slice(0, mid);
+    let rightArray = lists.slice(mid, lists.length);
+    let leftHeadNode = mergeSort_linkedList(leftArray);
+    let rightHeadNode = mergeSort_linkedList(rightArray);
+    let result = merge_linkedList(leftHeadNode, rightHeadNode);
     return result;
 }
 
