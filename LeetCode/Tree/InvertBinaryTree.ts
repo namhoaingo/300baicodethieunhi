@@ -33,11 +33,11 @@
       }
       
       isLeftHeavy(){
-        return this.left.height > this.right.height;
+        return (this.left ? this.left.height : -1) > (this.right ? this.right.height: -1);
       }
 
       isRightHeavy(){
-        return this.left.height < this.right.height;
+        return (this.left ? this.left.height : -1) < (this.right ? this.right.height : -1);
       }
   }
  
@@ -61,7 +61,7 @@ class ContainerTreeNode{
         {
             if(val <= treeNode.val){
                 if(treeNode.left){
-                    this.insert(val, treeNode.left);
+                    return this.insert(val, treeNode.left);
                 }
                 else{
                     let newNode = new TreeNode(val);
@@ -72,7 +72,7 @@ class ContainerTreeNode{
             }
             else{
                 if(treeNode.right){
-                    this.insert(val, treeNode.right);
+                    return this.insert(val, treeNode.right);
                 }else{
                     let newNode = new TreeNode(val);
                     treeNode.right = newNode;
@@ -92,6 +92,7 @@ class ContainerTreeNode{
             let heightRight = currentNode.right ? currentNode.right.height : -1;
             if(treeNode.isBalance())
             {
+                currentNode.updateHeight(); 
                 this.rebalance(currentNode.parent);
             }
             else{
