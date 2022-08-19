@@ -52,6 +52,10 @@ class ContainerTreeNode {
 
     constructor() { }
 
+    masterInsert(val: number){
+        this.rebalance(this.insert(val, this.head));
+    }    
+
     insert(val: number, treeNode: TreeNode): TreeNode {
         if (!this.head) {
             this.head = new TreeNode(val);
@@ -208,19 +212,12 @@ class ContainerTreeNode {
 
 
 let testContainerTreeNode = new ContainerTreeNode();
-var insertedNode = testContainerTreeNode.insert(9, testContainerTreeNode.head);
-// rebalance
-testContainerTreeNode.rebalance(insertedNode);
-insertedNode = testContainerTreeNode.insert(7, testContainerTreeNode.head);
-testContainerTreeNode.rebalance(insertedNode);
-insertedNode = testContainerTreeNode.insert(6, testContainerTreeNode.head);
-testContainerTreeNode.rebalance(insertedNode);
-insertedNode = testContainerTreeNode.insert(4, testContainerTreeNode.head);
-testContainerTreeNode.rebalance(insertedNode);
-insertedNode = testContainerTreeNode.insert(3, testContainerTreeNode.head);
-testContainerTreeNode.rebalance(insertedNode);
-insertedNode = testContainerTreeNode.insert(2, testContainerTreeNode.head);
-testContainerTreeNode.rebalance(insertedNode);
-insertedNode = testContainerTreeNode.insert(1, testContainerTreeNode.head);
-testContainerTreeNode.rebalance(insertedNode);
+testContainerTreeNode.masterInsert(1);
+testContainerTreeNode.masterInsert(2);
+testContainerTreeNode.masterInsert(3);
+testContainerTreeNode.masterInsert(4);
+testContainerTreeNode.masterInsert(6);
+testContainerTreeNode.masterInsert(7);
+testContainerTreeNode.masterInsert(9);
+
 console.log(testContainerTreeNode);
