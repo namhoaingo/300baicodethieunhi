@@ -259,13 +259,13 @@ function addToPreOrderTree(val: number, currentResultNode: TreeNode, resultConta
 }
 
 let testContainerTreeNode = new ContainerTreeNode();
-testContainerTreeNode.masterInsert(1);
-testContainerTreeNode.masterInsert(2);
-testContainerTreeNode.masterInsert(3);
-testContainerTreeNode.masterInsert(4);
-testContainerTreeNode.masterInsert(6);
-testContainerTreeNode.masterInsert(7);
-testContainerTreeNode.masterInsert(9);
+testContainerTreeNode.masterInsert(0);
+//testContainerTreeNode.masterInsert(2);
+//testContainerTreeNode.masterInsert(3);
+//testContainerTreeNode.masterInsert(4);
+//testContainerTreeNode.masterInsert(6);
+//testContainerTreeNode.masterInsert(7);
+//testContainerTreeNode.masterInsert(9);
 
 
 let invertedTree = invertTree(testContainerTreeNode.head);
