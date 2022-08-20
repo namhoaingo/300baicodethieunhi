@@ -13,15 +13,15 @@
  * }
  */
 
-function invertTree(root: TreeNode | null): TreeNode | null {
+function invertTreeLookAtSln(root: TreeNode | null): TreeNode | null {
     if(!root){
         return null;
     }
     let tmp = root.left
     root.left = root.right;
     root.right = tmp;
-    invertTree(root.left);
-    invertTree(root.right);
+    invertTreeLookAtSln(root.left);
+    invertTreeLookAtSln(root.right);
     return root;
 };
 
