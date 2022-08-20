@@ -208,35 +208,35 @@ class ContainerTreeNode {
 
 function invertTree(root: TreeNode | null): TreeNode | null {
     // perform a pre order
-    let resultHead = null;
-    preorderTraversalAndAdd(root, resultHead)
-    return resultHead;
+    let resultContainer: ContainerTreeNode = new ContainerTreeNode();
+    preorderTraversalAndAdd(root, resultContainer)
+    return resultContainer.head;
 };
 
 // + a b
-function preorderTraversalAndAdd(treeNode: TreeNode, resultHead: TreeNode){
+function preorderTraversalAndAdd(treeNode: TreeNode, resultContainer: ContainerTreeNode){
 
     // do something with the root
     if(treeNode){
-        addToPreOrderTree(treeNode.val, resultHead);
+        addToPreOrderTree(treeNode.val,resultContainer.head, resultContainer);
         if(treeNode.left){
-            preorderTraversalAndAdd(treeNode.left, resultHead);
+            preorderTraversalAndAdd(treeNode.left, resultContainer);
         }
         
         if(treeNode.right){
-            preorderTraversalAndAdd(treeNode.right, resultHead);
+            preorderTraversalAndAdd(treeNode.right, resultContainer);
         }
     }
     
 }
 
 
-function addToPreOrderTree(val: number, currentResultNode: TreeNode){
+function addToPreOrderTree(val: number, currentResultNode: TreeNode, resultContainer: ContainerTreeNode){
     
     if(currentResultNode){
-        if(val < currentResultNode.val){
+        if(val > currentResultNode.val){
             if(currentResultNode.left){
-                addToPreOrderTree(val, currentResultNode.left)
+                addToPreOrderTree(val, currentResultNode.left, resultContainer)
             }
             else{
                 let newNode = new TreeNode(val);
@@ -245,7 +245,7 @@ function addToPreOrderTree(val: number, currentResultNode: TreeNode){
         }
         else{
             if(currentResultNode.right){
-                addToPreOrderTree(val, currentResultNode.right)
+                addToPreOrderTree(val, currentResultNode.right, resultContainer)
             }
             else{
                 let newNode = new TreeNode(val);
@@ -254,7 +254,7 @@ function addToPreOrderTree(val: number, currentResultNode: TreeNode){
         }
     }else{
         let newNode = new TreeNode(val)
-        currentResultNode = newNode;
+        resultContainer.head = newNode;
     }
 }
 
