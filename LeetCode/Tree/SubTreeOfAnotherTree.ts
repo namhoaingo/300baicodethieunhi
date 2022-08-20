@@ -14,5 +14,13 @@
  */
 
 function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
-
+    if(root == null && subRoot == null){
+        return true;
+    }
+    else{
+        if(root.val != subRoot.val){
+            // advance root
+            
+        }
+    }
 };
