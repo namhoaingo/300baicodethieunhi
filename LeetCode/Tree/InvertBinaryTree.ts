@@ -42,11 +42,6 @@ class TreeNode {
 }
 
 
-function invertTree(root: TreeNode | null): TreeNode | null {
-    return null;
-};
-
-
 class ContainerTreeNode {
     head: TreeNode;
 
@@ -211,6 +206,58 @@ class ContainerTreeNode {
 }
 
 
+function invertTree(root: TreeNode | null): TreeNode | null {
+    // perform a pre order
+    let resultHead = null;
+    preorderTraversalAndAdd(root, resultHead)
+    return resultHead;
+};
+
+// + a b
+function preorderTraversalAndAdd(treeNode: TreeNode, resultHead: TreeNode){
+
+    // do something with the root
+    if(treeNode){
+        addToPreOrderTree(treeNode.val, resultHead);
+        if(treeNode.left){
+            preorderTraversalAndAdd(treeNode.left, resultHead);
+        }
+        
+        if(treeNode.right){
+            preorderTraversalAndAdd(treeNode.right, resultHead);
+        }
+    }
+    
+}
+
+
+function addToPreOrderTree(val: number, currentResultNode: TreeNode){
+    
+    if(currentResultNode){
+        if(val < currentResultNode.val){
+            if(currentResultNode.left){
+                addToPreOrderTree(val, currentResultNode.left)
+            }
+            else{
+                let newNode = new TreeNode(val);
+                currentResultNode.left = newNode;
+            }
+        }
+        else{
+            if(currentResultNode.right){
+                addToPreOrderTree(val, currentResultNode.right)
+            }
+            else{
+                let newNode = new TreeNode(val);
+                currentResultNode.right = newNode; 
+            }
+        }
+    }else{
+        let newNode = new TreeNode(val)
+        currentResultNode = newNode;
+    }
+}
+
 let testContainerTreeNode = new ContainerTreeNode();
 testContainerTreeNode.masterInsert(1);
 testContainerTreeNode.masterInsert(2);
@@ -220,4 +267,6 @@ testContainerTreeNode.masterInsert(6);
 testContainerTreeNode.masterInsert(7);
 testContainerTreeNode.masterInsert(9);
 
+
+let invertedTree = invertTree(testContainerTreeNode.head);
 console.log(testContainerTreeNode);
