@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Tree\\InvertBinaryTree.ts",
+            "program": "${workspaceFolder}\\Tree\\235_LowestCommonAncestor.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

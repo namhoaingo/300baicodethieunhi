@@ -14,13 +14,13 @@
  * }
  */
 
-function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+function isSameTreeBetterResult(p: TreeNode | null, q: TreeNode | null): boolean {
     if(p == null && q==null){
         return true;
     }
     else{
-        let rightSameTree = isSameTree(p.right, q.right);
-        let leftSameTree = isSameTree(p.left, q.left);
+        let rightSameTree = isSameTreeBetterResult(p.right, q.right);
+        let leftSameTree = isSameTreeBetterResult(p.left, q.left);
         if(rightSameTree && leftSameTree && q.val == q.val){
             return true;
         }

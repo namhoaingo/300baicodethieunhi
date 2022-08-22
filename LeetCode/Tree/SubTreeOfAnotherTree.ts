@@ -22,6 +22,44 @@ function isSubtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
 };
 
 
+function isSameTreea(p: TreeNode | null, q: TreeNode | null): boolean {
+    if(p == null && q==null){
+        return true;
+    }else if ((q == null && p != null) || (q !=null && p == null)) {
+        return false;
+    }
+    else{
+        let rightSameTree = isSameTree(p.right, q.right);
+        let leftSameTree = isSameTree(p.left, q.left);
+        if(rightSameTree && leftSameTree && p.val == q.val){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
+
+//
+// Much better version 
+function isSubtreeBetterVersion(root: TreeNode | null, subRoot: TreeNode | null): boolean {
+  if(!subRoot){
+    return true;
+  } 
+  if(!root){
+    return false;
+  }
+
+  if(isSameTree(root, subRoot)){
+    return true;
+  }
+
+  return isSubtreeBetterVersion(root.left,subRoot) || isSubtreeBetterVersion(root.right, subRoot);
+
+};
+
+
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     if(p == null && q==null){
         return true;
