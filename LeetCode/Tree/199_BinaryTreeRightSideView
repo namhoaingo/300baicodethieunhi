@@ -1,0 +1,72 @@
+//https://leetcode.com/problems/binary-tree-right-side-view/
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function rightSideView(root: TreeNodeBreadFirstSearch199 | null): number[] {
+    let fulBreadth = levelOrder(root);
+    let result = new Array<number>();
+    if(fulBreadth.length > 0){
+        fulBreadth.forEach(row => {
+            let lastNum = row.pop();
+            if(lastNum){
+                result.push(lastNum)
+            }
+        })        
+    }
+    return result;
+};
+
+
+function levelOrder(root: TreeNodeBreadFirstSearch199 | null): number[][] {
+    let nodeArray = new Array<TreeNodeBreadFirstSearch199>();
+    let result = new Array<Array<number>>();
+    if(!root){
+        return result;
+    }
+    nodeArray.push(root);
+
+    while(true){
+        let newArrayBreadth = printReversive(nodeArray, result);
+        if(newArrayBreadth.length == 0){
+            break;
+        }
+        else{
+            nodeArray = newArrayBreadth;
+        }
+    }
+
+    return result;
+};
+
+
+function printReversive(arrayBreadth: TreeNodeBreadFirstSearch199[], result: Array<Array<number>>): TreeNodeBreadFirstSearch199[]{
+    let newArrayBreath = new Array<TreeNodeBreadFirstSearch199>();
+    let newResult = new Array();    
+    arrayBreadth.forEach(ele =>{
+        newResult.push(ele.val);
+        if(ele.left){
+            newArrayBreath.push(ele.left);
+        }
+        if(ele.right){
+            newArrayBreath.push(ele.right);
+        }
+    })
+
+    result.push(newResult);
+    return newArrayBreath;
+}
+
+
+//Runtime: 92 ms, faster than 73.63% of TypeScript online submissions for Binary Tree Right Side View.
+//Memory Usage: 45.3 MB, less than 12.53% of TypeScript online submissions for Binary Tree Right Side View.
