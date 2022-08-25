@@ -16,9 +16,12 @@
 
 function isValidBST(root: TreeNode | null): boolean {
     // Go through every tree node, loop and check from top again
+    if(!root){
+        return true;
+    }
     let uniqueDict = {}; 
     let isRootGood = isGoodNode(root, root, uniqueDict);
-    return isRootGood && isGoodNode(root.right, root, uniqueDict) && isGoodNode(root.left, root, uniqueDict);
+    return isRootGood && isValidBST(root.right) && isValidBST(root.left);
 }
 
 
