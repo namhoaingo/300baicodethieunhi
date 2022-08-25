@@ -15,33 +15,54 @@
  */
 
 function isValidBST(root: TreeNode | null): boolean {
-   if(!root){
-    return true;
-   }
-   let leftValid = true;
-   let rightValid = true;
-   if(root.right){
-        if(root.val < root.right.val)
+    // Go through every tree node, loop and check from top again
+    let uniqueDict = {}; 
+    let isRootGood = isGoodNode(root, root, uniqueDict);
+    return isRootGood && isGoodNode(root.right, root, uniqueDict) && isGoodNode(root.left, root, uniqueDict);
+}
+
+
+function isGoodNode(currentNode: TreeNode, rootNode: TreeNode, uniqueDict: Object): boolean{
+    
+    if(!currentNode){        
+        return true;
+    }
+    else if(!rootNode){
+        // if rootNode does not have value
+        // and currentNode has value
+        return false;
+    }
+    else{
+        if(uniqueDict[currentNode.val] != undefined){
+            return false;
+        }
+        if(currentNode.val == rootNode.val)
         {
-           rightValid = isValidBST(root.right);
+            uniqueDict[currentNode.val] = 1;
+            return true;
         }
-        else{
-            rightValid = false;
+    
+        if(currentNode.val < rootNode.val){
+            return isGoodNode(currentNode, rootNode.left, uniqueDict)
         }
-   }
-
-   if(root.left){
-        if(root.val > root.left.val){
-           leftValid = isValidBST(root.left);
+        if(currentNode.val > rootNode.val){
+            return isGoodNode(currentNode, rootNode.right, uniqueDict)
         }
-        else{
-            leftValid = false;
-        }
-   }
-    return rightValid && leftValid;        
-};
-
+    }
+}
 
         5
-       4 6
-        3 7
+       / \
+      4    10
+          / \
+         7   11
+
+
+
+                32
+              /    \  
+            26      47
+           /          \
+         19            56
+           \
+           27               
