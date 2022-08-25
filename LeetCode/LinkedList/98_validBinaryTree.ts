@@ -1,0 +1,47 @@
+
+//https://leetcode.com/problems/validate-binary-search-tree/
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+function isValidBST(root: TreeNode | null): boolean {
+   if(!root){
+    return true;
+   }
+   let leftValid = true;
+   let rightValid = true;
+   if(root.right){
+        if(root.val < root.right.val)
+        {
+           rightValid = isValidBST(root.right);
+        }
+        else{
+            rightValid = false;
+        }
+   }
+
+   if(root.left){
+        if(root.val > root.left.val){
+           leftValid = isValidBST(root.left);
+        }
+        else{
+            leftValid = false;
+        }
+   }
+    return rightValid && leftValid;        
+};
+
+
+        5
+       4 6
+        3 7
