@@ -15,15 +15,18 @@
  */
 
 function isValidBST(root: TreeNode | null): boolean {
-    // Go through every tree node, loop and check from top again
-    if(!root){
-        return true;
-    }
-    let uniqueDict = {}; 
-    let isRootGood = isGoodNode(root, root, uniqueDict);
-    return isRootGood && isValidBST(root.right) && isValidBST(root.left);
-}
+    // Go through every tree node, loop and check from top again  
+    let uniqueDict = {};
+    return isValidRecursive(root, root, uniqueDict)
 
+}
+function isValidRecursive(currentNode: TreeNode, root: TreeNode, uniqueDict: Object){    
+    if(!currentNode){
+            return true;
+    }
+    let isCurrentNodeGood = isGoodNode(currentNode, root, uniqueDict);
+    return isCurrentNodeGood && isValidRecursive(currentNode.right, root, uniqueDict) && isValidRecursive(currentNode.left, root, uniqueDict);
+}
 
 function isGoodNode(currentNode: TreeNode, rootNode: TreeNode, uniqueDict: Object): boolean{
     
@@ -54,18 +57,21 @@ function isGoodNode(currentNode: TreeNode, rootNode: TreeNode, uniqueDict: Objec
     }
 }
 
-        5
-       / \
-      4    10
-          / \
-         7   11
+//        5
+//       / \
+//      4    10
+//          / \
+//         7   11
 
 
 
-                32
-              /    \  
-            26      47
-           /          \
-         19            56
-           \
-           27               
+//                32
+//              /    \  
+//            26      47
+//           /          \
+//         19            56
+//           \
+//           27               
+
+//Runtime: 149 ms, faster than 15.38% of TypeScript online submissions for Validate Binary Search Tree.
+//Memory Usage: 48.6 MB, less than 11.08% of TypeScript online submissions for Validate Binary Search Tree.
