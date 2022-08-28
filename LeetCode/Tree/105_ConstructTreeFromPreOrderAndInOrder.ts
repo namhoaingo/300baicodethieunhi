@@ -14,7 +14,7 @@
  */
 
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
-    if (!preorder || !inorder){
+    if (preorder.length == 0 || inorder.length == 0){
         return null;
     }
 
@@ -25,3 +25,7 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     root.right = buildTree(preorder.slice(mid+1), inorder.slice(mid+1));
     return root;
 };
+
+
+//Runtime: 239 ms, faster than 31.33% of TypeScript online submissions for Construct Binary Tree from Preorder and Inorder Traversal.
+//Memory Usage: 138.7 MB, less than 14.29% of TypeScript online submissions for Construct Binary Tree from Preorder and Inorder Traversal.
