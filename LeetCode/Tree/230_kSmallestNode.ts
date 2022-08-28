@@ -16,4 +16,26 @@
 
 function kthSmallest(root: TreeNode | null, k: number): number {
 
+    // in prder traversal and count. Then return
+    let resultArray = new Array<number>();
+    inOrderTraversalStopAtK(root, resultArray);
+
+    return resultArray[k-1];
 };
+
+// return k at the current position
+function inOrderTraversalStopAtK(currentNode: TreeNode, resultArray: number[]){
+
+    if(currentNode == null){
+        return;
+    }
+
+    inOrderTraversalStopAtK(currentNode.left, resultArray);
+    //add to the array
+    resultArray.push(currentNode.val);
+
+    inOrderTraversalStopAtK(currentNode.right, resultArray);
+
+}
+//Runtime: 83 ms, faster than 96.37% of TypeScript online submissions for Kth Smallest Element in a BST.
+//Memory Usage: 49.2 MB, less than 52.42% of TypeScript online submissions for Kth Smallest Element in a BST.
