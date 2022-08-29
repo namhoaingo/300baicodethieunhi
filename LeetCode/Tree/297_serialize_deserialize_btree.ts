@@ -22,16 +22,16 @@ function serialize(root: TreeNode | null): string {
     if(!root){
         return "";
     }
-    let inOrderResult = new Array<number>();
-    inOrderTraversal297(root,inOrderResult);
+    let inOrderResult = new Array<TreeNodeIndentifier>();
+    inOrderTraversal297(root , inOrderResult);
 
-    let preOrderResult = new Array<number>();
+    let preOrderResult = new Array<TreeNodeIndentifier>();
     preOrderTraversal297(root, preOrderResult);
      
     return inOrderResult.join(",") +"|"+ preOrderResult.join(",");
 };
 
-function inOrderTraversal297(root: TreeNode, inorderTraversalArray: Array<number>){
+function inOrderTraversal297(root: TreeNode, inorderTraversalArray: Array<TreeNodeIndentifier>){
     if(!root){
         return;
     }
@@ -42,7 +42,7 @@ function inOrderTraversal297(root: TreeNode, inorderTraversalArray: Array<number
 }
 
 //+ab
-function preOrderTraversal297(root: TreeNode, preorderTraversalArray: Array<number>){
+function preOrderTraversal297(root: TreeNode, preorderTraversalArray: Array<TreeNodeIndentifier>){
     if(!root){
         return;
     }
@@ -88,7 +88,11 @@ class TreeNodeIndentifier{
         this.val = value;
         this.iden = identification;
     }
+
 }
+
+
+// Problem now is the identitifcation
 
 /**
  * Your functions will be called as such:
