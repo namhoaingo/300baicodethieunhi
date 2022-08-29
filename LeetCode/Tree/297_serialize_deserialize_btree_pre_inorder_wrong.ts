@@ -22,16 +22,16 @@ function serialize(root: TreeNode | null): string {
     if(!root){
         return "";
     }
-    let inOrderResult = new Array<TreeNodeIndentifier>();
-    inOrderTraversal297(root , inOrderResult);
+    let inOrderResult = new Array<number>();
+    inOrderTraversal297(root,inOrderResult);
 
-    let preOrderResult = new Array<TreeNodeIndentifier>();
+    let preOrderResult = new Array<number>();
     preOrderTraversal297(root, preOrderResult);
      
     return inOrderResult.join(",") +"|"+ preOrderResult.join(",");
 };
 
-function inOrderTraversal297(root: TreeNode, inorderTraversalArray: Array<TreeNodeIndentifier>){
+function inOrderTraversal297(root: TreeNode, inorderTraversalArray: Array<number>){
     if(!root){
         return;
     }
@@ -42,7 +42,7 @@ function inOrderTraversal297(root: TreeNode, inorderTraversalArray: Array<TreeNo
 }
 
 //+ab
-function preOrderTraversal297(root: TreeNode, preorderTraversalArray: Array<TreeNodeIndentifier>){
+function preOrderTraversal297(root: TreeNode, preorderTraversalArray: Array<number>){
     if(!root){
         return;
     }
@@ -88,11 +88,21 @@ class TreeNodeIndentifier{
         this.val = value;
         this.iden = identification;
     }
-
 }
 
+class TreeNodeArrayContainer{
+    treeNodes: Array<TreeNodeIndentifier>;
 
-// Problem now is the identitifcation
+    constructor(){
+
+    }
+
+    add(treeNodeIden: TreeNodeIndentifier){
+        this.treeNodes.push(treeNodeIden);
+    }
+
+    find()
+}
 
 /**
  * Your functions will be called as such:

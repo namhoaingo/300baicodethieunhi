@@ -1,0 +1,66 @@
+//https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
+
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+
+/*
+ * Encodes a tree to a single string.
+ */
+function serialize(root: TreeNode | null): string {
+    // pre order
+    let resultArray = new Array<string>();
+    preOrderTreeTraver(root, resultArray);
+    return resultArray.join(",");
+};
+
+function preOrderTreeTraver(root: TreeNode, resultArrray: Array<string>){
+    if(!root){
+        resultArrray.push("N");
+    }
+
+    resultArrray.push(root.val.toString());
+    preOrderTreeTraver(root.left, resultArrray);
+    preOrderTreeTraver(root.right, resultArrray);
+}
+
+/*
+ * Decodes your encoded data to tree.
+ */
+function deserialize(data: string): TreeNode | null {
+    let preOrderArray = data.split(",");
+    return createRootFromString(preOrderArray, 0);
+
+};
+
+
+function createRootFromString(preOrderArray: Array<string>, counter: number){
+    if(preOrderArray[counter] == "N"){
+        // Do not create node if N
+        counter++;
+        return;
+    }
+
+    let root = new TreeNode(Number.parseInt(preOrderArray[counter]));
+    counter++;
+    root.left = createRootFromString(preOrderArray, counter);
+    root.right = createRootFromString(preOrderArray, counter);
+}
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+
+//Runtime: 106 ms, faster than 100.00% of TypeScript online submissions for Serialize and Deserialize Binary Tree.
+//Memory Usage: 54 MB, less than 45.71% of TypeScript online submissions for Serialize and Deserialize Binary Tree.
