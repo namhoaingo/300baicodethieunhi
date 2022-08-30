@@ -14,7 +14,7 @@
  * }
  */
 
-function kthSmallest(root: TreeNode | null, k: number): number {
+function kthSmallest_normal(root: TreeNode | null, k: number): number {
 
     // in prder traversal and count. Then return
     let resultArray = new Array<number>();

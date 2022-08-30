@@ -14,7 +14,7 @@
  * }
  */
 
-function isValidBST(root: TreeNode | null): boolean {
+function isValidBST_better(root: TreeNode | null): boolean {
     // Go through every tree node, loop and check from top again  
     return validBST(root, Number.NEGATIVE_INFINITY, Number.POSITIVE_INFINITY);
 }

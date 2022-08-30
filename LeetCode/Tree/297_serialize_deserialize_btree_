@@ -17,6 +17,7 @@
 /*
  * Encodes a tree to a single string.
  */
+/*
 function serialize(root: TreeNode | null): string {
     // pre order
     let resultArray = new Array<string>();
@@ -56,7 +57,7 @@ function createRootFromString(preOrderArray: Array<string>, counter: number){
     root.left = createRootFromString(preOrderArray, counter);
     root.right = createRootFromString(preOrderArray, counter);
 }
-
+*/
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));

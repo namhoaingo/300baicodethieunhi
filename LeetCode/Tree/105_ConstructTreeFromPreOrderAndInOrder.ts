@@ -13,7 +13,7 @@
  * }
  */
 
-function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
+function buildTree105(preorder: number[], inorder: number[]): TreeNode | null {
     if (preorder.length == 0 || inorder.length == 0){
         return null;
     }
@@ -21,8 +21,8 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     let root = new TreeNode(preorder[0]);
     let mid = inorder.indexOf(preorder[0]);
 
-    root.left = buildTree(preorder.slice(1, mid+1), inorder.slice(undefined, mid));
-    root.right = buildTree(preorder.slice(mid+1), inorder.slice(mid+1));
+    root.left = buildTree105(preorder.slice(1, mid+1), inorder.slice(undefined, mid));
+    root.right = buildTree105(preorder.slice(mid+1), inorder.slice(mid+1));
     return root;
 };
 
