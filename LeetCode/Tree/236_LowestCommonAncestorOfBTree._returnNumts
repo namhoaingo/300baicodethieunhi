@@ -1,0 +1,60 @@
+//https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     val: number
+ *     left: TreeNode | null
+ *     right: TreeNode | null
+ *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.left = (left===undefined ? null : left)
+ *         this.right = (right===undefined ? null : right)
+ *     }
+ * }
+ */
+// This is a pretty intersting problem 
+// Let try to solve it 
+
+function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
+    let resultDict = convertListToParentArray(root);
+    let qParents = resultDict[p.val];
+    let pParents = resultDict[q.val];
+
+    let isQParentsLonger = qParents.length > pParents.length;
+    if(!isQParentsLonger){
+        let temp = pParents;
+        pParents = qParents;
+        qParents = temp;
+    }
+
+    for (let i = 0; i < qParents.length; i++){
+        if(qParents[i] != pParents[i]){
+            return qParents[i-1];
+        }
+    }
+    return null
+}
+
+function convertListToParentArray(root: TreeNode): object{
+    let parrentArray = new Object();
+
+    addParrentToList(null, root, parrentArray);
+    return parrentArray;
+}
+
+function addParrentToList(parrent: TreeNode, child: TreeNode, resultDict: object){
+    if(!child){
+        return;
+    }
+    
+    // add a new child 
+    // copy the parent array 
+    let parrentArray = resultDict[parrent.val];
+    let childArray = new Array<number>();
+    childArray.push(parrentArray);
+    childArray.push(parrent.val);
+    resultDict[child.val] = childArray;
+    addParrentToList(child, child.left, resultDict);
+    addParrentToList(child, child.right, resultDict);
+}
