@@ -14,7 +14,7 @@
  * }
  */
 
-function lowestCommonAncestor(root: TreeNodeLowestCommonAncestor | null
+function lowestCommonAncestor_235(root: TreeNodeLowestCommonAncestor | null
                                 , p: TreeNodeLowestCommonAncestor | null
                                 , q: TreeNodeLowestCommonAncestor | null)
                                 : TreeNodeLowestCommonAncestor | null {
@@ -34,10 +34,10 @@ function lowestCommonAncestor(root: TreeNodeLowestCommonAncestor | null
         return root;
     }
     else if(root.val <= smaller.val ){
-        return lowestCommonAncestor(root.right, bigger, smaller);
+        return lowestCommonAncestor_235(root.right, bigger, smaller);
     }
     else if(root.val >= bigger.val){
-        return lowestCommonAncestor(root.left, bigger, smaller);
+        return lowestCommonAncestor_235(root.left, bigger, smaller);
     }
 };
 
@@ -78,9 +78,9 @@ container.head.right.left = newNode;
 newNode = new TreeNodeLowestCommonAncestor(9);
 container.head.right.right = newNode;
 
-let lowestCommonAncestorResult = lowestCommonAncestor(container.head, new TreeNodeLowestCommonAncestor(7), new TreeNodeLowestCommonAncestor(9))
+let lowestCommonAncestor_235Result = lowestCommonAncestor_235(container.head, new TreeNodeLowestCommonAncestor(7), new TreeNodeLowestCommonAncestor(9))
 
-console.log(lowestCommonAncestor);
+console.log(lowestCommonAncestor_235);
 
 
 //Runtime: 123 ms, faster than 67.25% of TypeScript online submissions for Lowest Common Ancestor of a Binary Search Tree.

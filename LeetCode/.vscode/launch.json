@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Trie\\208_ImplementTrie.ts",
+            "program": "${workspaceFolder}\\Unknown\\2032_twooutofthree.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
