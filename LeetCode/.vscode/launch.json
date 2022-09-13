@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Trie\\211_Design_add_searcg_word.ts",
+            "program": "${workspaceFolder}\\Heap&PiorityQueue\\703KthLargestElementInAStream.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

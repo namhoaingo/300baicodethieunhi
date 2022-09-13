@@ -42,8 +42,9 @@ function twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): numbe
     let resultArray = new Array<number>();
     Object.keys(resultDict).forEach(key => {
         if(resultDict[key] >= 2){
-            resultArray.push(parseInt(key)
+            resultArray.push(parseInt(key))
         }
+
     })
     return resultArray;
 };
