@@ -19,27 +19,68 @@ class KthLargest {
     constructor(k: number, nums: number[]) {
         let unsortedArray = nums;
         this._k = k;
-        this.sortedArrayUsingHeap = this.processQueue(unsortedArray, _k);
+        this.sortedArrayUsingHeap = this.processQueue(unsortedArray, this._k);
     }
 
 
     add(val: number): number{
         // check the value, if the value is bigger than the min
-        // 
+        // if it is bigger than the min, insert
+        // it it is smaller than the min, ignore it
+        if(this.sortedArrayUsingHeap.length < this._k){
+            this.sortedArrayUsingHeap.push(val);
+            this.heapSortBaseOnParent(this.sortedArrayUsingHeap, this.sortedArrayUsingHeap.length-1);
+        }
+        else{
+            let currentKBiggest = this.sortedArrayUsingHeap[0];
+            if(currentKBiggest < val){
+                this.sortedArrayUsingHeap.push(val);
+                this.heapSortBaseOnParent(this.sortedArrayUsingHeap, this.sortedArrayUsingHeap.length-1);
+                while(this.sortedArrayUsingHeap.length > this._k){
+                    //this.sortedArrayUsingHeap.shift();
+                    this.swapA_B(this.sortedArrayUsingHeap, 0, this.sortedArrayUsingHeap.length-1);
+                    this.sortedArrayUsingHeap.pop();
+                    this.min_heapifyAtIndex(this.sortedArrayUsingHeap, 0, this.sortedArrayUsingHeap.length-1);
+                }
+            } 
+        }
+        return this.sortedArrayUsingHeap[0];
     }
+
+    private heapSortBaseOnParent(unSortedArray: Array<number>, currentIndex: number){
+        let parrentIndex = Math.floor(currentIndex/2);
+        while(true){
+            if(currentIndex !=  parrentIndex){
+                if(unSortedArray[currentIndex] < unSortedArray[parrentIndex]){
+                    this.swapA_B(unSortedArray, currentIndex,parrentIndex);
+                    this.heapSortBaseOnParent(unSortedArray, parrentIndex);
+                }
+                else{
+                    break;
+                }
+            }
+            else{
+                break;
+            }
+        }
+    }
+
 
     private processQueue(unSortedArray: Array<number>, k: number): Array<number>{
         // take in unsorted array
         // return the array which has the length no bigger than k
-        for(let index = 0; index < unSortedArray.length; index--){
+        for(let index = unSortedArray.length - 1; index >= 0; index--){
             this.min_heapifyAtIndex(unSortedArray, index, unSortedArray.length-1);
         }
 
         while(unSortedArray.length > k){
-            unSortedArray.shift();
-            this.swapA_B(unSortedArray, 0, unSortedArray[unSortedArray.length-1]);
+            //unSortedArray.shift();
+            this.swapA_B(unSortedArray, 0, unSortedArray.length-1);
+            unSortedArray.pop();
             this.min_heapifyAtIndex(unSortedArray, 0, unSortedArray.length-1);
         }
+
+        return unSortedArray;
     }
 
     private min_heapifyAtIndex(unSortedArray: Array<number>, currentIndex: number, endIndex: number){
@@ -57,6 +98,8 @@ class KthLargest {
                         this.swapA_B(unSortedArray, currentIndex, rightChildIndex);
                         this.min_heapifyAtIndex(unSortedArray, rightChildIndex, endIndex);
                     }
+                }else{
+                    break;
                 }
             }
             else if(leftChildIndex <= endIndex && rightChildIndex > endIndex){
@@ -99,14 +142,71 @@ class KthLargest {
  */
 
 
-var obj =new KthLargest(3, [4,5,8,2]);
+//var obj =new KthLargest(3, [4,5,8,2]);
+//let resultFrom703 = obj.add(3); //2,3,4,5,8
+//console.log(resultFrom703); //2
+//resultFrom703 = obj.add(5); // 2,3,4,5,5,8
+//console.log(resultFrom703);
+//resultFrom703 = obj.add(10);
+//console.log(resultFrom703);
+//resultFrom703 = obj.add(9);
+//console.log(resultFrom703);
+//resultFrom703 = obj.add(4);
+//console.log(resultFrom703);
+
+var obj =new KthLargest(7, [-10,1,3,1,4,10,3,9,4,5,1]);
 let resultFrom703 = obj.add(3); //2,3,4,5,8
 console.log(resultFrom703); //2
-resultFrom703 = obj.add(5); // 2,3,4,5,5,8
+resultFrom703 = obj.add(2); // 2,3,4,5,5,8
+console.log(resultFrom703);
+resultFrom703 = obj.add(3);
+console.log(resultFrom703);
+resultFrom703 = obj.add(1);
+console.log(resultFrom703);
+resultFrom703 = obj.add(2);
+console.log(resultFrom703);
+resultFrom703 = obj.add(4);
+console.log(resultFrom703);
+resultFrom703 = obj.add(5);
+console.log(resultFrom703);
+resultFrom703 = obj.add(5);
+console.log(resultFrom703);
+resultFrom703 = obj.add(6);
+console.log(resultFrom703);
+resultFrom703 = obj.add(7);
+console.log(resultFrom703);
+resultFrom703 = obj.add(7);
+console.log(resultFrom703);
+resultFrom703 = obj.add(8);
+console.log(resultFrom703);
+resultFrom703 = obj.add(2);
+console.log(resultFrom703);
+resultFrom703 = obj.add(3);
+console.log(resultFrom703);
+resultFrom703 = obj.add(1);
+console.log(resultFrom703);
+resultFrom703 = obj.add(1);
+console.log(resultFrom703);
+resultFrom703 = obj.add(1);
 console.log(resultFrom703);
 resultFrom703 = obj.add(10);
 console.log(resultFrom703);
-resultFrom703 = obj.add(9);
+resultFrom703 = obj.add(11);
 console.log(resultFrom703);
+resultFrom703 = obj.add(5);
+console.log(resultFrom703);
+resultFrom703 = obj.add(6);
+console.log(resultFrom703);
+resultFrom703 = obj.add(2);
+console.log(resultFrom703);
+
 resultFrom703 = obj.add(4);
+console.log(resultFrom703);
+resultFrom703 = obj.add(7);
+console.log(resultFrom703);
+resultFrom703 = obj.add(8);
+console.log(resultFrom703);
+resultFrom703 = obj.add(5);
+console.log(resultFrom703);
+resultFrom703 = obj.add(6);
 console.log(resultFrom703);
