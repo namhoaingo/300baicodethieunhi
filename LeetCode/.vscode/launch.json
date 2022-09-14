@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Heap&PiorityQueue\\703KthLargestElementInAStream.ts",
+            "program": "${workspaceFolder}\\Heap&PiorityQueue\\1046LastStoneWeight.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
