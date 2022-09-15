@@ -48,7 +48,7 @@ class KthLargest {
     }
 
     private heapSortBaseOnParent(unSortedArray: Array<number>, currentIndex: number){
-        let parrentIndex = Math.floor(currentIndex/2);
+        let parrentIndex = Math.floor((currentIndex-1)/2);
         while(true){
             if(currentIndex !=  parrentIndex){
                 if(unSortedArray[currentIndex] < unSortedArray[parrentIndex]){
@@ -133,6 +133,8 @@ class KthLargest {
     }
 }
 
+//Runtime: 231 ms, faster than 66.67% of TypeScript online submissions for Kth Largest Element in a Stream.
+//Memory Usage: 49.9 MB, less than 90.60% of TypeScript online submissions for Kth Largest Element in a Stream.
 
 
 /**
