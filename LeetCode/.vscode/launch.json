@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Heap&PiorityQueue\\973KClosestPointToOrigin.ts",
+            "program": "${workspaceFolder}\\Heap&PiorityQueue\\215_KthLargestElementInArray.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
