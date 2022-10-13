@@ -2,7 +2,7 @@
 // Bai nay qua kho luon 
 // Dung recursive va stack 
 // kho that, neu khong dung recursive chac kho co the giai quyet duoc
-function generateParenthesis(n: number): string[] {
+function generateParenthesisStack(n: number): string[] {
     // create two array, and merge each one 
     var stack = new GenericStack<string>();
     var result = new Array();
@@ -127,7 +127,7 @@ class StackNode<T>{
 }
 
 
-console.log(generateParenthesis(4));
+console.log(generateParenthesisStack(4));
 
 
 //Runtime: 86 ms, faster than 77.75% of TypeScript online submissions for Generate Parentheses.

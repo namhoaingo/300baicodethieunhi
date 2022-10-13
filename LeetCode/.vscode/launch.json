@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Heap&PiorityQueue\\621_TaskScheduler.ts",
+            "program": "${workspaceFolder}\\Backtrack\\78_subsets.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
