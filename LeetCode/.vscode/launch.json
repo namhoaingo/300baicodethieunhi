@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Backtrack\\90_Suset_II_c2.ts",
+            "program": "${workspaceFolder}\\Backtrack\\200_numberofisland.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
