@@ -1,0 +1,6 @@
+
+boolean, byte, short, int, long, float, double, char
+
+
+1. When Java see number, Java thinks int --> need letter L at the end
+2. When Java see decimal, Java thinks double --> need letter f at the end to tell it is float

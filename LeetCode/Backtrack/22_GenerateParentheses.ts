@@ -1,5 +1,7 @@
 //https://leetcode.com/problems/generate-parentheses/
-
+//
+// cho n parenthesis 3 
+// ()()() (())() ((()))
 function generateParenthesis(n: number): string[] {
     let stack = [];
     let answer = [];
@@ -28,3 +30,5 @@ function generateParenthesis(n: number): string[] {
     return answer;
     
 };
+
+console.log(generateParenthesis(4));

@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**",                
             ],            
-            "program": "${workspaceFolder}\\Backtrack\\200_numberofisland.ts",
+            "program": "${workspaceFolder}\\Backtrack\\22_GenerateParentheses.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"

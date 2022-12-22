@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface ThirdteenDigitQualifier {
+public @interface ThirteenDigitQualifier {
 }
 
 
