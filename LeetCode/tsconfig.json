@@ -4,5 +4,8 @@
       "module": "commonjs",
       "outDir": "out",
       "sourceMap": true
-    }
+    },
+    "files": [
+      "Unknown/227_basicCal2_list.ts"
+    ]
   }

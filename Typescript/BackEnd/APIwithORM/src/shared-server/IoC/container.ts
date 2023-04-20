@@ -6,7 +6,7 @@ let sharedContainer: Container;
 export const core = (localConfig: ILocalConfig) =>{
     return new ContainerModule((bind: interfaces.Bind) =>{
         if (process.env.NODE_DEV === "test"){
-            bind("Server")
+            bind("ServerInstanceTest").to(ServerInstanceTest);
         }
     })
 }
